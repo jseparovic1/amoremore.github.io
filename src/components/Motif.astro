@@ -1,0 +1,20 @@
+---
+/** Hand-drawn heart (Amore) and waves (More) motifs echoing the logo artwork. */
+interface Props {
+  kind: 'heart' | 'wave';
+  class?: string;
+}
+const { kind, class: className } = Astro.props;
+---
+
+{kind === 'heart' ? (
+  <svg viewBox="0 0 48 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class={className} aria-hidden="true">
+    <path d="M24 35 C11 26 5 17 9 10 C12 4.5 21 5 24 12 C27 5 36 4.5 39 10 C43 17 37 26 24 35" />
+  </svg>
+) : (
+  <svg viewBox="0 0 64 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class={className} aria-hidden="true">
+    <path d="M2 6 C10 2 16 10 24 6 C32 2 38 10 46 6 C52 3 58 7 62 5" />
+    <path d="M6 14 C14 10 20 18 28 14 C36 10 42 18 50 14 C55 11.5 59 15 62 13" />
+    <path d="M12 21 C18 18 24 24 32 21 C40 18 44 23 52 20" />
+  </svg>
+)}

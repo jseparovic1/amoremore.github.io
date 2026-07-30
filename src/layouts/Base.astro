@@ -1,0 +1,98 @@
+---
+import '../styles/global.css';
+import logoWordmark from '../assets/brand/logo-full.svg';
+import logoMark from '../assets/brand/logo-mark.svg';
+import {
+  locales,
+  localePath,
+  withBase,
+  useTranslations,
+  contactEmail,
+  type Locale,
+} from '../i18n/translations';
+import boskaUrl from '../assets/fonts/Boska-Variable.woff2?url';
+import satoshiUrl from '../assets/fonts/Satoshi-Variable.woff2?url';
+
+interface Props {
+  locale: Locale;
+  /** locale-independent path of the current page, e.g. '/' or '/amore/' */
+  path: string;
+  title?: string;
+  description?: string;
+}
+
+const { locale, path, title, description } = Astro.props;
+const t = useTranslations(locale);
+const pageTitle = title ?? t.meta.title;
+const pageDescription = description ?? t.meta.description;
+const home = localePath(locale);
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={new URL(withBase('/og-image.jpg'), Astro.site)} />
+    <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
+    <link rel="canonical" href={new URL(localePath(locale, path), Astro.site)} />
+    {locales.map((l) => (
+      <link rel="alternate" hreflang={l} href={new URL(localePath(l, path), Astro.site)} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={new URL(localePath('en', path), Astro.site)} />
+    <link rel="preload" href={boskaUrl} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={satoshiUrl} as="font" type="font/woff2" crossorigin />
+  </head>
+  <body>
+    <header class="fixed inset-x-0 top-0 z-40 transition-colors duration-500" id="site-header">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
+        <a href={home} aria-label="AmoreMore Apartments" class="shrink-0">
+          <img src={logoWordmark.src} alt="Amore More" class="h-9 w-auto sm:h-10" />
+        </a>
+        <div class="hidden items-center gap-8 md:flex">
+          <a class="label text-cream/80 transition-colors hover:text-gold" href={`${home}#apartments`}>{t.nav.amore} &amp; {t.nav.more}</a>
+          <a class="label text-cream/80 transition-colors hover:text-gold" href={`${home}#location`}>{t.nav.location}</a>
+          <a
+            class="label border border-gold/60 px-4 py-2 text-gold transition-colors hover:bg-gold hover:text-ink"
+            href={`${home}#contact`}
+          >{t.nav.book}</a>
+        </div>
+        <div class="flex items-center gap-3 md:ml-8">
+          {locales.map((l) => (
+            <a
+              href={localePath(l, path)}
+              class:list={[
+                'label transition-colors',
+                l === locale ? 'text-gold' : 'text-cream/50 hover:text-cream',
+              ]}
+              aria-current={l === locale ? 'page' : undefined}
+            >{l}</a>
+          ))}
+        </div>
+      </nav>
+    </header>
+
+    <slot />
+
+    <footer class="bg-ink px-5 py-14 text-cream/60 sm:px-8">
+      <div class="mx-auto flex max-w-7xl flex-col items-center gap-8 text-center">
+        <img src={logoMark.src} alt="Amore More" class="h-20 w-auto opacity-90" />
+        <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+          <a class="label transition-colors hover:text-gold" href={`${home}#apartments`}>{t.nav.amore} &amp; {t.nav.more}</a>
+          <a class="label transition-colors hover:text-gold" href={`${home}#location`}>{t.nav.location}</a>
+          <a class="label transition-colors hover:text-gold" href={`mailto:${contactEmail}`}>{contactEmail}</a>
+        </div>
+        <p class="label text-cream/35">© {new Date().getFullYear()} {t.footer.rights}</p>
+      </div>
+    </footer>
+
+    <script>
+      import '../scripts/animations';
+    </script>
+  </body>
+</html>

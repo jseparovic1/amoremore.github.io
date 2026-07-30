@@ -1,0 +1,164 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Motif from './Motif.astro';
+import AmenityIcon from './AmenityIcon.astro';
+import { apartments, type ApartmentId } from '../data/apartments';
+import {
+  useTranslations,
+  localePath,
+  type Locale,
+} from '../i18n/translations';
+
+interface Props {
+  locale: Locale;
+  id: ApartmentId;
+}
+const { locale, id } = Astro.props;
+const t = useTranslations(locale);
+const apt = apartments[id];
+const copy = t.apartments[id];
+const intro = t.apartmentPage[id].intro;
+const otherId: ApartmentId = id === 'amore' ? 'more' : 'amore';
+const [hero, ...rest] = apt.gallery;
+const amenityIcons = [
+  'wifi',
+  'ac',
+  'balcony',
+  'coffee',
+  'dishwasher',
+  'oven',
+  'desk',
+  'bathroom',
+  ...(id === 'amore' ? (['sonos'] as const) : []),
+] as const;
+const title = `${copy.name} · ${copy.type} - AmoreMore Apartments Split`;
+---
+
+<Base locale={locale} path={`/${id}/`} title={title} description={intro}>
+  <main>
+    <!-- Apartment hero -->
+    <section class="relative flex min-h-[82svh] items-end overflow-hidden bg-ink text-cream">
+      <Image
+        src={hero}
+        alt={`${copy.name} - ${copy.type}`}
+        class="absolute inset-0 h-full w-full object-cover opacity-80"
+        data-kenburns
+        widths={[640, 1024, 1440, 1920]}
+        sizes="100vw"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/25 to-ink/40"></div>
+      <div class="relative mx-auto w-full max-w-7xl px-5 pb-16 pt-40 sm:px-8">
+        <p class="label text-gold" data-hero-item>{copy.type} · {copy.sleeps}</p>
+        <div class="mt-4 flex items-end gap-6" data-hero-item>
+          <h1 class="font-display text-7xl font-medium italic leading-none md:text-9xl">{copy.name}</h1>
+          <Motif kind={apt.motif} class="mb-3 h-10 w-auto text-gold md:h-14" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Intro + amenities -->
+    <section class="px-5 py-20 sm:px-8 md:py-28">
+      <div class="mx-auto grid max-w-7xl gap-14 md:grid-cols-12">
+        <div class="gs-reveal md:col-span-6" data-reveal>
+          <span class="rule mb-6"></span>
+          <p class="font-display text-2xl font-medium leading-relaxed text-charcoal md:text-3xl">{intro}</p>
+          <a
+            href={`${localePath(locale)}#contact`}
+            class="label mt-12 inline-block border border-charcoal px-7 py-3.5 text-charcoal transition-colors duration-300 hover:border-ink hover:bg-ink hover:text-gold"
+          >{t.apartmentPage.book}</a>
+        </div>
+        <div class="gs-reveal md:col-span-5 md:col-start-8" data-reveal>
+          <p class="label text-rose-deep">{t.apartmentPage.amenities}</p>
+          <ul class="mt-8 grid grid-cols-2 gap-x-6 gap-y-8" data-stagger>
+            {amenityIcons.map((name) => (
+              <li class="gs-reveal flex items-center gap-4">
+                <AmenityIcon name={name} class="h-7 w-7 shrink-0 text-rose-deep" />
+                <span class="text-sm text-charcoal/80">{t.amenities.items[name]}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="bg-cream-deep px-5 py-20 sm:px-8 md:py-28">
+      <div class="mx-auto max-w-7xl">
+        <div class="gs-reveal flex items-end justify-between gap-6" data-reveal>
+          <div>
+            <p class="label text-rose-deep">{t.gallery.kicker}</p>
+            <span class="rule my-6"></span>
+            <h2 class="font-display text-4xl font-medium leading-[1.05] md:text-5xl">{t.gallery.title}</h2>
+          </div>
+          <Motif kind={apt.motif} class="mb-2 hidden h-10 w-auto text-rose-deep/50 md:block" />
+        </div>
+
+        <div class="mt-14 grid grid-flow-dense grid-cols-2 gap-3 md:grid-cols-3 md:gap-4" data-lightbox-gallery>
+          {rest.map((img, i) => (
+            <button
+              type="button"
+              class:list={[
+                'gs-reveal group relative block overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-rose-deep',
+                i % 7 === 0 && i < rest.length - 3 && 'col-span-2 row-span-2',
+              ]}
+              data-lightbox-index={i}
+              data-reveal
+              aria-label={t.gallery.viewPhoto}
+            >
+              <Image
+                src={img}
+                alt={`${copy.name} photo ${i + 2}`}
+                widths={[400, 700, 1100]}
+                sizes="(max-width: 768px) 46vw, 31vw"
+                class="aspect-[4/3] h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+              />
+              <span class="absolute inset-0 bg-ink/0 transition-colors duration-500 group-hover:bg-ink/15"></span>
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Cross-link + book -->
+    <section class="bg-ink px-5 py-24 text-center text-cream sm:px-8">
+      <div class="gs-reveal mx-auto max-w-2xl" data-reveal>
+        <p class="label text-cream/60">{t.apartmentPage.otherApartment}</p>
+        <a
+          href={localePath(locale, `/${otherId}/`)}
+          class="group mt-6 inline-flex items-baseline gap-5 font-display text-6xl font-medium italic text-gold transition-opacity hover:opacity-80 md:text-7xl"
+        >
+          {t.apartments[otherId].name}
+          <Motif kind={apartments[otherId].motif} class="h-8 w-auto self-center text-gold/70 transition-transform duration-500 group-hover:translate-x-2" />
+        </a>
+        <div class="mt-14">
+          <a href={localePath(locale)} class="label text-cream/50 transition-colors hover:text-cream">← {t.apartmentPage.backHome}</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox overlay -->
+  <div
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-ink/95 p-4 md:p-10"
+    data-lightbox
+    role="dialog"
+    aria-modal="true"
+    aria-label={t.gallery.title}
+  >
+    <button type="button" class="absolute right-5 top-5 p-2 text-3xl leading-none text-cream/70 transition-colors hover:text-gold" data-lightbox-close aria-label="Close">×</button>
+    <button type="button" class="absolute left-3 top-1/2 -translate-y-1/2 p-3 text-4xl text-cream/70 transition-colors hover:text-gold md:left-8" data-lightbox-prev aria-label="Previous">‹</button>
+    <button type="button" class="absolute right-3 top-1/2 -translate-y-1/2 p-3 text-4xl text-cream/70 transition-colors hover:text-gold md:right-8" data-lightbox-next aria-label="Next">›</button>
+    <figure class="flex max-h-full max-w-6xl items-center justify-center">
+      <img src="" alt="" class="max-h-[85svh] w-auto max-w-full object-contain" data-lightbox-img />
+    </figure>
+    <p class="label absolute bottom-6 left-1/2 -translate-x-1/2 text-cream/60" data-lightbox-counter></p>
+  </div>
+</Base>
+
+<script>
+  import { initLightbox } from '../scripts/lightbox';
+  initLightbox();
+</script>

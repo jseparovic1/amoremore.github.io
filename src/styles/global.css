@@ -1,0 +1,73 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'Boska';
+  src: url('../assets/fonts/Boska-Variable.woff2') format('woff2');
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Boska';
+  src: url('../assets/fonts/Boska-VariableItalic.woff2') format('woff2');
+  font-weight: 200 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('../assets/fonts/Satoshi-Variable.woff2') format('woff2');
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-display: 'Boska', 'Georgia', serif;
+  --font-sans: 'Satoshi', 'Helvetica Neue', sans-serif;
+
+  /* brand palette sampled from the AmoreMore logos and interiors */
+  --color-ink: #090a0e;
+  --color-ink-soft: #14161d;
+  --color-gold: #fbdc6a;
+  --color-gold-deep: #cfa84f;
+  --color-cream: #f7f2e8;
+  --color-cream-deep: #ece4d2;
+  --color-rose: #c2848f;
+  --color-rose-deep: #a5626e;
+  --color-charcoal: #22232a;
+
+  --tracking-label: 0.22em;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  @apply bg-cream text-charcoal font-sans antialiased;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-ink);
+}
+
+/* small-caps letter-spaced label */
+.label {
+  @apply font-sans text-[0.72rem] font-medium uppercase;
+  letter-spacing: var(--tracking-label);
+}
+
+/* thin rule line used as an editorial divider */
+.rule {
+  @apply block h-px w-16 bg-gold-deep;
+}
