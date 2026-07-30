@@ -32,12 +32,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # site and base come from the Pages config, so the build works both on
-      # <user>.github.io/<repo> and on a custom domain without code changes
+      # site comes from astro.config.mjs (the Pages origin reports http:// because
+      # HTTPS is terminated by Cloudflare, not GitHub); base still comes from Pages
       - name: Build
         run: >
           npx astro build
-          --site "${{ steps.pages.outputs.origin }}"
           --base "${{ steps.pages.outputs.base_path || '/' }}"
 
       - uses: actions/upload-pages-artifact@v3
