@@ -66,7 +66,7 @@ const title = `${copy.name} · ${copy.type} - AmoreMore Apartments Split`;
           <span class="rule mb-6"></span>
           <p class="font-display text-2xl font-medium leading-relaxed text-charcoal md:text-3xl">{intro}</p>
           <a
-            href={`${localePath(locale)}#contact`}
+            href={`${localePath(locale)}?apartment=${copy.name}#contact`}
             class="label mt-12 inline-block border border-charcoal px-7 py-3.5 text-charcoal transition-colors duration-300 hover:border-ink hover:bg-ink hover:text-gold"
           >{t.apartmentPage.book}</a>
         </div>

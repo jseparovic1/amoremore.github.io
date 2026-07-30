@@ -1,25 +1,56 @@
 ---
+import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import Motif from '../components/Motif.astro';
+import { storyPhotos } from '../data/apartments';
 import { localePath } from '../i18n/translations';
 ---
 
-<Base locale="en" path="/" title="Page not found - AmoreMore Apartments">
+<Base locale="en" path="/" title="Lost at sea - AmoreMore Apartments">
   <main>
-    <section class="relative flex min-h-svh flex-col items-center justify-center overflow-hidden bg-ink px-5 text-center text-cream sm:px-8">
-      <Motif kind="wave" class="h-10 w-auto text-gold/60" />
-      <h1 class="mt-8 font-display text-8xl font-medium italic leading-none text-gold md:text-9xl">404</h1>
-      <p class="mt-8 max-w-md font-display text-2xl font-light italic leading-snug text-cream/85 md:text-3xl">
-        This page drifted out to sea.
-      </p>
-      <p class="label mt-4 text-cream/50">Ova stranica je otplutala u more. · Diese Seite ist ins Meer getrieben.</p>
-      <div class="mt-12 flex flex-wrap items-center justify-center gap-6">
-        <a
-          href={localePath('en')}
-          class="label border border-gold px-7 py-3.5 text-gold transition-colors duration-300 hover:bg-gold hover:text-ink"
-        >Back to shore</a>
-        <a href={localePath('hr')} class="label text-cream/60 transition-colors hover:text-cream">Hrvatski</a>
-        <a href={localePath('de')} class="label text-cream/60 transition-colors hover:text-cream">Deutsch</a>
+    <section class="relative flex min-h-svh items-center overflow-hidden bg-ink text-cream">
+      <Image
+        src={storyPhotos.front}
+        alt=""
+        class="absolute inset-0 h-full w-full object-cover opacity-40"
+        data-kenburns
+        widths={[640, 1024, 1440, 1920]}
+        sizes="100vw"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-ink/70"></div>
+
+      <div class="relative mx-auto w-full max-w-7xl px-5 py-32 text-center sm:px-8">
+        <p class="label text-gold/90" data-hero-item>Split · Croatia</p>
+        <h1 class="mt-6 font-display text-[7rem] font-medium italic leading-none text-gold md:text-[11rem]" data-hero-item>404</h1>
+        <p class="mx-auto mt-8 max-w-md font-display text-2xl font-light italic leading-snug text-cream/85 md:text-3xl" data-hero-item>
+          You drifted a little too far from shore.
+        </p>
+        <p class="label mt-5 text-cream/40" data-hero-item>
+          Otplutali ste malo predaleko od obale. · Sie sind etwas zu weit vom Ufer abgetrieben.
+        </p>
+
+        <div class="mt-14 flex flex-wrap items-center justify-center gap-6" data-hero-item>
+          <a
+            href={localePath('en')}
+            class="label border border-gold px-7 py-3.5 text-gold transition-colors duration-300 hover:bg-gold hover:text-ink"
+          >Swim back home</a>
+          <a href={localePath('en', '/amore/')} class="group label inline-flex items-center gap-3 text-cream/70 transition-colors hover:text-cream">
+            Amore
+            <Motif kind="heart" class="h-4 w-auto text-gold/70 transition-transform duration-500 group-hover:scale-125" />
+          </a>
+          <a href={localePath('en', '/more/')} class="group label inline-flex items-center gap-3 text-cream/70 transition-colors hover:text-cream">
+            More
+            <Motif kind="wave" class="h-4 w-auto text-gold/70 transition-transform duration-500 group-hover:translate-x-1" />
+          </a>
+        </div>
+
+        <div class="mt-10 flex items-center justify-center gap-5" data-hero-item>
+          <a href={localePath('hr')} class="label text-cream/40 transition-colors hover:text-gold">Hrvatski</a>
+          <span class="h-px w-6 bg-cream/20"></span>
+          <a href={localePath('de')} class="label text-cream/40 transition-colors hover:text-gold">Deutsch</a>
+        </div>
       </div>
     </section>
   </main>

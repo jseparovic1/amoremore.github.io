@@ -3,6 +3,16 @@ export function initContactForm() {
   const form = document.querySelector<HTMLFormElement>('[data-contact-form]');
   if (!form) return;
 
+  // pre-select the apartment when arriving via ?apartment=Amore|More
+  const wanted = new URLSearchParams(window.location.search).get('apartment');
+  const select = form.querySelector<HTMLSelectElement>('select[name="apartment"]');
+  if (wanted && select) {
+    const match = [...select.options].find(
+      (o) => o.value.toLowerCase() === wanted.toLowerCase()
+    );
+    if (match) select.value = match.value;
+  }
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const data = new FormData(form);
