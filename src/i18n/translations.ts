@@ -20,6 +20,7 @@ const en = {
     title: 'AmoreMore Apartments - love, sleep and swim in the charming Split',
     description:
       'Two brand new luxury apartments in the heart of Split, Croatia. Seven minutes from Bacvice beach, steps from Diocletian’s Palace.',
+    ogImageAlt: 'Interior of the AmoreMore apartments in Split, Croatia',
   },
   nav: {
     home: 'Home',
@@ -131,6 +132,7 @@ const hr: Translation = {
     title: 'AmoreMore Apartments - ljubav, san i more u srcu Splita',
     description:
       'Dva potpuno nova luksuzna apartmana u srcu Splita. Sedam minuta od Bačvica, nekoliko koraka od Dioklecijanove palače.',
+    ogImageAlt: 'Interijer apartmana AmoreMore u Splitu',
   },
   nav: {
     home: 'Početna',
@@ -240,6 +242,7 @@ const de: Translation = {
     title: 'AmoreMore Apartments - lieben, schlafen und schwimmen im charmanten Split',
     description:
       'Zwei brandneue Luxus-Apartments im Herzen von Split, Kroatien. Sieben Minuten zum Strand Bacvice, wenige Schritte zum Diokletianpalast.',
+    ogImageAlt: 'Innenansicht der AmoreMore Apartments in Split, Kroatien',
   },
   nav: {
     home: 'Start',
