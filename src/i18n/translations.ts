@@ -7,7 +7,7 @@ export const localeNames: Record<Locale, string> = {
   de: 'Deutsch',
 };
 
-export const contactEmail = 'amoremore@gmail.com';
+export const contactEmail = 'amoremore.st@gmail.com';
 
 export const bookingUrls: Record<Locale, string> = {
   en: 'https://www.booking.com/hotel/hr/amoremore-apartments.en-gb.html',
