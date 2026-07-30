@@ -40,8 +40,8 @@ const title = `${copy.name} · ${copy.type} - AmoreMore Apartments Split`;
     <!-- Apartment hero -->
     <section class="relative flex min-h-[82svh] items-end overflow-hidden bg-ink text-cream">
       <Image
-        src={hero}
-        alt={`${copy.name} - ${copy.type}`}
+        src={hero.image}
+        alt={`${copy.name} - ${hero.alt}`}
         class="absolute inset-0 h-full w-full object-cover opacity-80"
         data-kenburns
         widths={[640, 1024, 1440, 1920]}
@@ -109,8 +109,8 @@ const title = `${copy.name} · ${copy.type} - AmoreMore Apartments Split`;
               aria-label={t.gallery.viewPhoto}
             >
               <Image
-                src={img}
-                alt={`${copy.name} photo ${i + 2}`}
+                src={img.image}
+                alt={`${copy.name} - ${img.alt}`}
                 widths={[400, 700, 1100]}
                 sizes="(max-width: 768px) 46vw, 31vw"
                 class="aspect-[4/3] h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"

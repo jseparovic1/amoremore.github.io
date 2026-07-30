@@ -14,69 +14,75 @@ function photo(folder: string, id: string): ImageMetadata {
 
 export type ApartmentId = 'amore' | 'more';
 
+export interface GalleryPhoto {
+  image: ImageMetadata;
+  /** descriptive alt text for accessibility and image SEO */
+  alt: string;
+}
+
 export interface Apartment {
   id: ApartmentId;
   motif: 'heart' | 'wave';
   /** curated gallery order; first entry is the page hero */
-  gallery: ImageMetadata[];
+  gallery: GalleryPhoto[];
   card: ImageMetadata;
   plaque: ImageMetadata;
 }
 
-const amoreIds = [
-  '690954614', // bed and dining, bright
-  '690954625', // kitchenette and bed
-  '690954606', // kitchen corner with bed
-  '690954585', // dining nook and bed
-  '690954409', // bed beside dining table
-  '690954462', // bed and wardrobe
-  '690954573', // bed detail
-  '690954581', // pillows and bed
-  '690954434', // kitchen with gold kettle
-  '690954444', // kitchen and fridge
-  '690954478', // coffee corner
-  '690954591', // kettle and bathroom door
-  '690954523', // bathroom fittings
-  '690954534', // round mirror vanity
-  '690954551', // kitchen and TV wall
-  '690954487', // bed and TV
-  '690954610', // Amore door plaque
+const amoreShots: Array<[string, string]> = [
+  ['690954614', 'Bright studio with the bed and dining table'],
+  ['690954625', 'Kitchenette and bed in warm light'],
+  ['690954606', 'Kitchen corner with the bed beyond'],
+  ['690954585', 'Dining nook beside the bed'],
+  ['690954409', 'Bed next to the dining table'],
+  ['690954462', 'Bed and oak wardrobe'],
+  ['690954573', 'Detail of the made bed'],
+  ['690954581', 'Soft pillows on the bed'],
+  ['690954434', 'Kitchen with a gold kettle'],
+  ['690954444', 'Kitchen and fridge'],
+  ['690954478', 'Coffee corner'],
+  ['690954591', 'Kettle beside the bathroom door'],
+  ['690954523', 'Brass bathroom fittings'],
+  ['690954534', 'Round mirror above the vanity'],
+  ['690954551', 'Kitchen and TV wall'],
+  ['690954487', 'Bed facing the TV'],
+  ['690954610', 'Amore door plaque'],
 ];
 
-const moreIds = [
-  '690954402', // open plan living room
-  '690954594', // living room with sofa
-  '690954598', // sofa and hallway
-  '690954569', // living and dining
-  '690954356', // kitchen island with flowers
-  '690954501', // dining table and kitchen
-  '690954506', // kitchen towards hallway
-  '690954545', // dining nook
-  '690954471', // living room wide
-  '690954495', // sofa and window
-  '690954417', // bedroom with curtains
-  '690954426', // bedroom velvet headboard
-  '690954512', // bedroom with ceiling fan
-  '690954619', // bed with towels
-  '690954556', // bedroom mirror
-  '690954561', // bathroom mosaic
-  '690954565', // rain shower
-  '690954394', // bathroom vanity
-  '690954454', // More door plaque
+const moreShots: Array<[string, string]> = [
+  ['690954402', 'Open plan living room'],
+  ['690954594', 'Living room with the sofa'],
+  ['690954598', 'Sofa and hallway'],
+  ['690954569', 'Living and dining area'],
+  ['690954356', 'Kitchen island with fresh flowers'],
+  ['690954501', 'Dining table and kitchen'],
+  ['690954506', 'Kitchen looking towards the hallway'],
+  ['690954545', 'Dining nook'],
+  ['690954471', 'Wide view of the living room'],
+  ['690954495', 'Sofa by the window'],
+  ['690954417', 'Bedroom with curtains drawn'],
+  ['690954426', 'Bedroom with a velvet headboard'],
+  ['690954512', 'Bedroom with a ceiling fan'],
+  ['690954619', 'Bed with folded towels'],
+  ['690954556', 'Bedroom mirror'],
+  ['690954561', 'Bathroom with mosaic tiles'],
+  ['690954565', 'Rain shower'],
+  ['690954394', 'Bathroom vanity'],
+  ['690954454', 'More door plaque'],
 ];
 
 export const apartments: Record<ApartmentId, Apartment> = {
   amore: {
     id: 'amore',
     motif: 'heart',
-    gallery: amoreIds.map((id) => photo('amore', id)),
+    gallery: amoreShots.map(([id, alt]) => ({ image: photo('amore', id), alt })),
     card: photo('amore', '690954614'),
     plaque: photo('amore', '690954610'),
   },
   more: {
     id: 'more',
     motif: 'wave',
-    gallery: moreIds.map((id) => photo('more', id)),
+    gallery: moreShots.map(([id, alt]) => ({ image: photo('more', id), alt })),
     card: photo('more', '690954402'),
     plaque: photo('more', '690954454'),
   },

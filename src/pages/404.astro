@@ -1,0 +1,26 @@
+---
+import Base from '../layouts/Base.astro';
+import Motif from '../components/Motif.astro';
+import { localePath } from '../i18n/translations';
+---
+
+<Base locale="en" path="/" title="Page not found - AmoreMore Apartments">
+  <main>
+    <section class="relative flex min-h-svh flex-col items-center justify-center overflow-hidden bg-ink px-5 text-center text-cream sm:px-8">
+      <Motif kind="wave" class="h-10 w-auto text-gold/60" />
+      <h1 class="mt-8 font-display text-8xl font-medium italic leading-none text-gold md:text-9xl">404</h1>
+      <p class="mt-8 max-w-md font-display text-2xl font-light italic leading-snug text-cream/85 md:text-3xl">
+        This page drifted out to sea.
+      </p>
+      <p class="label mt-4 text-cream/50">Ova stranica je otplutala u more. · Diese Seite ist ins Meer getrieben.</p>
+      <div class="mt-12 flex flex-wrap items-center justify-center gap-6">
+        <a
+          href={localePath('en')}
+          class="label border border-gold px-7 py-3.5 text-gold transition-colors duration-300 hover:bg-gold hover:text-ink"
+        >Back to shore</a>
+        <a href={localePath('hr')} class="label text-cream/60 transition-colors hover:text-cream">Hrvatski</a>
+        <a href={localePath('de')} class="label text-cream/60 transition-colors hover:text-cream">Deutsch</a>
+      </div>
+    </section>
+  </main>
+</Base>
