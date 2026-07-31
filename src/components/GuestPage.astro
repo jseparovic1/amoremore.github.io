@@ -100,22 +100,22 @@ const ids: ApartmentId[] = ['amore', 'more'];
               <div class="border border-cream/15 p-8">
                 <p class="label text-gold">{t.guest.wifi}</p>
                 <p class="mt-6 text-sm text-cream/50">{t.guest.network}</p>
-                <p class="mt-1 font-display text-2xl font-medium">{guestWifi[id].network}</p>
+                <p class="mt-1 text-xl font-semibold">{guestWifi[id].network}</p>
                 <p class="mt-5 text-sm text-cream/50">{t.guest.wifiPassword}</p>
-                <p class="mt-1 select-all font-display text-2xl font-medium tracking-wide text-gold">{guestWifi[id].password}</p>
+                <p class="mt-1 select-all text-xl font-semibold tracking-wider text-gold">{guestWifi[id].password}</p>
               </div>
 
               <div class="grid gap-5">
                 <div class="border border-cream/15 p-8">
                   <div class="flex items-baseline justify-between gap-4">
                     <p class="label text-gold">{t.guest.checkin}</p>
-                    <p class="font-display text-2xl font-medium">{t.guest.from} {checkInTime}</p>
+                    <p class="text-xl font-semibold">{t.guest.from} {checkInTime}</p>
                   </div>
                 </div>
                 <div class="border border-cream/15 p-8">
                   <div class="flex items-baseline justify-between gap-4">
                     <p class="label text-gold">{t.guest.checkout}</p>
-                    <p class="font-display text-2xl font-medium">{t.guest.until} {checkOutTime}</p>
+                    <p class="text-xl font-semibold">{t.guest.until} {checkOutTime}</p>
                   </div>
                 </div>
               </div>
@@ -124,9 +124,9 @@ const ids: ApartmentId[] = ['amore', 'more'];
                 <p class="label text-gold">{t.guest.contact}</p>
                 <p class="mt-4 text-cream/70">{t.guest.contactBody}</p>
                 <div class="mt-6 flex flex-wrap items-center gap-x-10 gap-y-3">
-                  <a class="font-display text-xl font-medium text-gold transition-opacity hover:opacity-80" href={`mailto:${contactEmail}`}>{contactEmail}</a>
+                  <a class="text-lg font-semibold text-gold transition-opacity hover:opacity-80" href={`mailto:${contactEmail}`}>{contactEmail}</a>
                   {hostPhone && (
-                    <a class="font-display text-xl font-medium text-gold transition-opacity hover:opacity-80" href={`tel:${hostPhone.replace(/\s/g, '')}`}>{hostPhone}</a>
+                    <a class="text-lg font-semibold text-gold transition-opacity hover:opacity-80" href={`tel:${hostPhone.replace(/\s/g, '')}`}>{hostPhone}</a>
                   )}
                 </div>
               </div>
