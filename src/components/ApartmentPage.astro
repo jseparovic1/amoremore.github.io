@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import Motif from './Motif.astro';
 import AmenityIcon from './AmenityIcon.astro';
@@ -33,9 +33,23 @@ const amenityIcons = [
   ...(id === 'amore' ? (['sonos'] as const) : []),
 ] as const;
 const title = `${copy.name} · ${copy.type} - AmoreMore Apartments Split`;
+const ogImage = await getImage({
+  src: hero.image,
+  width: 1200,
+  height: 630,
+  fit: 'cover',
+  format: 'jpg',
+});
 ---
 
-<Base locale={locale} path={`/${id}`} title={title} description={intro}>
+<Base
+  locale={locale}
+  path={`/${id}`}
+  title={title}
+  description={intro}
+  ogImage={ogImage.src}
+  ogImageAlt={`${copy.name} - ${hero.alt}`}
+>
   <main>
     <!-- Apartment hero -->
     <section class="relative flex min-h-[82svh] items-end overflow-hidden bg-ink text-cream">

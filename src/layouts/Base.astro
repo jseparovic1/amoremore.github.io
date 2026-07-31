@@ -12,6 +12,7 @@ import {
   bookingUrls,
   type Locale,
 } from '../i18n/translations';
+import { checkInTime, checkOutTime } from '../data/guestInfo';
 import boskaUrl from '../assets/fonts/Boska-Variable.woff2?url';
 import satoshiUrl from '../assets/fonts/Satoshi-Variable.woff2?url';
 
@@ -23,9 +24,12 @@ interface Props {
   description?: string;
   /** keep the page out of search engines (e.g. the guest portal) */
   noindex?: boolean;
+  /** page-specific social share image (root-relative, 1200x630); falls back to the site-wide one */
+  ogImage?: string;
+  ogImageAlt?: string;
 }
 
-const { locale, path, title, description, noindex = false } = Astro.props;
+const { locale, path, title, description, noindex = false, ogImage, ogImageAlt } = Astro.props;
 const t = useTranslations(locale);
 const pageTitle = title ?? t.meta.title;
 const pageDescription = description ?? t.meta.description;
@@ -40,7 +44,10 @@ const ogLocales: Record<Locale, string> = {
   it: 'it_IT',
 };
 const canonicalUrl = new URL(localePath(locale, path), Astro.site);
-const ogImageUrl = new URL(withBase('/og-image.jpg'), Astro.site);
+const ogImageUrl = new URL(ogImage ?? withBase('/og-image.jpg'), Astro.site);
+const ogAlt = ogImageAlt ?? t.meta.ogImageAlt;
+
+const amenityKeys = ['wifi', 'ac', 'balcony', 'coffee', 'dishwasher', 'oven', 'desk', 'bathroom'] as const;
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -50,6 +57,8 @@ const structuredData = {
   url: new URL(localePath(locale), Astro.site).href,
   image: ogImageUrl.href,
   email: contactEmail,
+  checkinTime: checkInTime,
+  checkoutTime: checkOutTime,
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Split',
@@ -68,6 +77,13 @@ const structuredData = {
     description: t.apartments[id].blurb,
     url: new URL(localePath(locale, `/${id}`), Astro.site).href,
     occupancy: { '@type': 'QuantitativeValue', maxValue: 2 },
+    amenityFeature: [...amenityKeys, ...(id === 'amore' ? (['sonos'] as const) : [])].map(
+      (key) => ({
+        '@type': 'LocationFeatureSpecification',
+        name: t.amenities.items[key],
+        value: true,
+      })
+    ),
   })),
 };
 ---
@@ -91,7 +107,7 @@ const structuredData = {
     <meta property="og:image" content={ogImageUrl} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={t.meta.ogImageAlt} />
+    <meta property="og:image:alt" content={ogAlt} />
     <meta property="og:locale" content={ogLocales[locale]} />
     {locales
       .filter((l) => l !== locale)
@@ -102,9 +118,11 @@ const structuredData = {
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={pageDescription} />
     <meta name="twitter:image" content={ogImageUrl} />
-    <meta name="twitter:image:alt" content={t.meta.ogImageAlt} />
+    <meta name="twitter:image:alt" content={ogAlt} />
 
     <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
+    <link rel="apple-touch-icon" href={withBase('/apple-touch-icon.png')} />
+    <link rel="manifest" href={withBase('/site.webmanifest')} />
     <link rel="canonical" href={canonicalUrl} />
     {locales.map((l) => (
       <link rel="alternate" hreflang={l} href={new URL(localePath(l, path), Astro.site)} />
