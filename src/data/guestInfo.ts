@@ -1,8 +1,8 @@
 import type { ApartmentId } from './apartments';
 
 export const guestWifi: Record<ApartmentId, { network: string; password: string }> = {
-  amore: { network: 'Amore', password: 'AmoreMore2025' },
-  more: { network: 'More', password: 'MoreAmore2025' },
+  amore: { network: 'Amore', password: '#AmoreMore' },
+  more: { network: 'More', password: '#MoreAmore' },
 };
 
 export const checkInTime = '15:00';
