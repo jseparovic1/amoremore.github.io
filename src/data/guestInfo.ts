@@ -6,7 +6,7 @@ export const guestWifi: Record<ApartmentId, { network: string; password: string 
 };
 
 export const checkInTime = '15:00';
-export const checkOutTime = '10:00';
+export const checkOutTime = '11:00';
 
 /** Code for the green entrance door (same for both apartments). */
 export const doorCode = '3105';
