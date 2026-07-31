@@ -1,12 +1,8 @@
 import type { ApartmentId } from './apartments';
 
-/**
- * Guest portal data. TODO: replace the WiFi credentials and phone number
- * with the real ones before sharing the portal with guests.
- */
 export const guestWifi: Record<ApartmentId, { network: string; password: string }> = {
-  amore: { network: 'AmoreMore-Amore', password: 'CHANGE-ME' },
-  more: { network: 'AmoreMore-More', password: 'CHANGE-ME' },
+  amore: { network: 'Amore', password: 'AmoreMore2025' },
+  more: { network: 'More', password: 'MoreAmore2025' },
 };
 
 export const checkInTime = '15:00';
