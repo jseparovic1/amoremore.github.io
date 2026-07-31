@@ -120,15 +120,26 @@ const ids: ApartmentId[] = ['amore', 'more'];
                 </div>
               </div>
 
-              <div class="border border-cream/15 p-8 sm:col-span-2">
-                <div class="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-4">
-                  <div>
-                    <p class="label text-gold">{t.guest.entrance}</p>
-                    <p class="mt-4 text-cream/70">{t.guest.entranceBody}</p>
-                  </div>
-                  <p class="select-all text-3xl font-semibold tracking-[0.3em] text-gold">{doorCode}</p>
+              <div class="flex gap-6 border border-cream/15 p-8 sm:col-span-2">
+                <div class="hidden w-32 shrink-0 self-stretch overflow-hidden sm:block">
+                  <Image
+                    src={sharedPhotos.entrance}
+                    alt={t.guest.entrance}
+                    widths={[200, 400]}
+                    sizes="8rem"
+                    class="h-full w-full scale-[1.7] object-cover object-[47%_60%]"
+                  />
                 </div>
-                <p class="mt-5 text-sm text-cream/50">{t.guest.lockerNote}</p>
+                <div class="min-w-0 flex-1">
+                  <div class="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-4">
+                    <div>
+                      <p class="label text-gold">{t.guest.entrance}</p>
+                      <p class="mt-4 text-cream/70">{t.guest.entranceBody}</p>
+                    </div>
+                    <p class="select-all text-3xl font-semibold tracking-[0.3em] text-gold">{doorCode}</p>
+                  </div>
+                  <p class="mt-5 text-sm text-cream/50">{t.guest.lockerNote}</p>
+                </div>
               </div>
 
               <div class="border border-cream/15 p-8 sm:col-span-2">
