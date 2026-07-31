@@ -667,5 +667,5 @@ export function withBase(path: string): string {
 
 export function localePath(locale: Locale, path = '/'): string {
   const clean = path.startsWith('/') ? path : `/${path}`;
-  return withBase(locale === 'en' ? clean : `/${locale}${clean === '/' ? '/' : clean}`);
+  return withBase(locale === 'en' ? clean : `/${locale}${clean === '/' ? '' : clean}`);
 }

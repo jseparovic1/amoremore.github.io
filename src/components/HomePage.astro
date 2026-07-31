@@ -119,7 +119,7 @@ const amenityIcons = ['wifi', 'ac', 'balcony', 'coffee', 'dishwasher', 'oven', '
             const copy = t.apartments[id];
             return (
               <a
-                href={localePath(locale, `/${id}/`)}
+                href={localePath(locale, `/${id}`)}
                 class:list={['gs-reveal group block', i === 1 && 'md:mt-24']}
                 data-reveal
               >

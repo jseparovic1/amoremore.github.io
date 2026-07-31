@@ -6,6 +6,10 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://amoremore.hr',
+  // clean URLs without trailing slashes: /guest instead of /guest/
+  // (GitHub Pages serves guest.html for a /guest request)
+  build: { format: 'file' },
+  trailingSlash: 'never',
   integrations: [
     sitemap({
       filter: (page) => !page.includes('/guest/'),

@@ -35,7 +35,7 @@ const amenityIcons = [
 const title = `${copy.name} · ${copy.type} - AmoreMore Apartments Split`;
 ---
 
-<Base locale={locale} path={`/${id}/`} title={title} description={intro}>
+<Base locale={locale} path={`/${id}`} title={title} description={intro}>
   <main>
     <!-- Apartment hero -->
     <section class="relative flex min-h-[82svh] items-end overflow-hidden bg-ink text-cream">
@@ -127,7 +127,7 @@ const title = `${copy.name} · ${copy.type} - AmoreMore Apartments Split`;
       <div class="gs-reveal mx-auto max-w-2xl" data-reveal>
         <p class="label text-cream/60">{t.apartmentPage.otherApartment}</p>
         <a
-          href={localePath(locale, `/${otherId}/`)}
+          href={localePath(locale, `/${otherId}`)}
           class="group mt-6 inline-flex items-baseline gap-5 font-display text-6xl font-medium italic text-gold transition-opacity hover:opacity-80 md:text-7xl"
         >
           {t.apartments[otherId].name}

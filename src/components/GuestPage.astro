@@ -15,7 +15,7 @@ const t = useTranslations(locale);
 const ids: ApartmentId[] = ['amore', 'more'];
 ---
 
-<Base locale={locale} path="/guest/" title={t.guest.metaTitle} description={t.guest.metaDescription} noindex>
+<Base locale={locale} path="/guest" title={t.guest.metaTitle} description={t.guest.metaDescription} noindex>
   <main class="bg-ink text-cream">
     <!-- Login -->
     <section id="guest-login" class="relative flex min-h-svh items-center overflow-hidden">
@@ -154,7 +154,7 @@ const ids: ApartmentId[] = ['amore', 'more'];
               </div>
 
               <a
-                href={localePath(locale, '/recommendations/')}
+                href={localePath(locale, '/recommendations')}
                 class="group border border-gold/40 p-8 transition-colors hover:border-gold sm:col-span-2"
               >
                 <p class="font-display text-2xl font-medium italic">{t.guest.recsTitle}</p>
