@@ -4,7 +4,7 @@ import Base from '../layouts/Base.astro';
 import Motif from './Motif.astro';
 import logoMark from '../assets/brand/logo-mark.svg';
 import { apartments, sharedPhotos, type ApartmentId } from '../data/apartments';
-import { guestWifi, checkInTime, checkOutTime, hostPhone } from '../data/guestInfo';
+import { guestWifi, checkInTime, checkOutTime, doorCode, hostPhone } from '../data/guestInfo';
 import { useTranslations, localePath, contactEmail, type Locale } from '../i18n/translations';
 
 interface Props {
@@ -118,6 +118,17 @@ const ids: ApartmentId[] = ['amore', 'more'];
                     <p class="text-xl font-semibold">{t.guest.until} {checkOutTime}</p>
                   </div>
                 </div>
+              </div>
+
+              <div class="border border-cream/15 p-8 sm:col-span-2">
+                <div class="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-4">
+                  <div>
+                    <p class="label text-gold">{t.guest.entrance}</p>
+                    <p class="mt-4 text-cream/70">{t.guest.entranceBody}</p>
+                  </div>
+                  <p class="select-all text-3xl font-semibold tracking-[0.3em] text-gold">{doorCode}</p>
+                </div>
+                <p class="mt-5 text-sm text-cream/50">{t.guest.lockerNote}</p>
               </div>
 
               <div class="border border-cream/15 p-8 sm:col-span-2">
