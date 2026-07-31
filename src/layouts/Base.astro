@@ -4,6 +4,7 @@ import logoWordmark from '../assets/brand/logo-full.svg';
 import logoMark from '../assets/brand/logo-mark.svg';
 import {
   locales,
+  localeNames,
   localePath,
   withBase,
   useTranslations,
@@ -30,7 +31,14 @@ const pageTitle = title ?? t.meta.title;
 const pageDescription = description ?? t.meta.description;
 const home = localePath(locale);
 
-const ogLocales: Record<Locale, string> = { en: 'en_GB', hr: 'hr_HR', de: 'de_DE' };
+const ogLocales: Record<Locale, string> = {
+  en: 'en_GB',
+  hr: 'hr_HR',
+  de: 'de_DE',
+  pl: 'pl_PL',
+  cs: 'cs_CZ',
+  it: 'it_IT',
+};
 const canonicalUrl = new URL(localePath(locale, path), Astro.site);
 const ogImageUrl = new URL(withBase('/og-image.jpg'), Astro.site);
 
@@ -65,7 +73,7 @@ const structuredData = {
 ---
 
 <!doctype html>
-<html lang={locale}>
+<html lang={locale} data-locales={locales.join(',')}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -123,18 +131,24 @@ const structuredData = {
             href={`${home}#contact`}
           >{t.nav.book}</a>
         </div>
-        <div class="flex items-center gap-3 md:ml-8">
-          {locales.map((l) => (
-            <a
-              href={localePath(l, path)}
-              class:list={[
-                'label transition-colors',
-                l === locale ? 'text-gold' : 'text-cream/50 hover:text-cream',
-              ]}
-              aria-current={l === locale ? 'page' : undefined}
-            >{l}</a>
-          ))}
-        </div>
+        <details class="relative md:ml-8" data-lang-menu>
+          <summary class="label flex cursor-pointer list-none items-center gap-2 text-cream/80 transition-colors hover:text-gold [&::-webkit-details-marker]:hidden">
+            {locale}<span aria-hidden="true" class="text-[0.6rem]">▾</span>
+          </summary>
+          <div class="absolute right-0 mt-3 flex w-44 flex-col border border-cream/15 bg-ink/95 py-2 backdrop-blur-md">
+            {locales.map((l) => (
+              <a
+                href={localePath(l, path)}
+                data-lang-pick={l}
+                class:list={[
+                  'label px-5 py-2.5 transition-colors',
+                  l === locale ? 'text-gold' : 'text-cream/70 hover:text-gold',
+                ]}
+                aria-current={l === locale ? 'page' : undefined}
+              >{localeNames[l]}</a>
+            ))}
+          </div>
+        </details>
       </nav>
     </header>
 
@@ -156,6 +170,8 @@ const structuredData = {
 
     <script>
       import '../scripts/animations';
+      import { initLanguage } from '../scripts/language';
+      initLanguage();
     </script>
   </body>
 </html>

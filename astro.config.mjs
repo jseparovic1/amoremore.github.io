@@ -12,15 +12,15 @@ export default defineConfig({
   trailingSlash: 'never',
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/guest/'),
+      filter: (page) => !page.includes('/guest'),
       i18n: {
         defaultLocale: 'en',
-        locales: { en: 'en', hr: 'hr', de: 'de' },
+        locales: { en: 'en', hr: 'hr', de: 'de', pl: 'pl', cs: 'cs', it: 'it' },
       },
     }),
   ],
   i18n: {
-    locales: ['en', 'hr', 'de'],
+    locales: ['en', 'hr', 'de', 'pl', 'cs', 'it'],
     defaultLocale: 'en',
     routing: {
       prefixDefaultLocale: false,

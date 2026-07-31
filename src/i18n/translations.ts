@@ -1,10 +1,13 @@
-export const locales = ['en', 'hr', 'de'] as const;
+export const locales = ['en', 'hr', 'de', 'pl', 'cs', 'it'] as const;
 export type Locale = (typeof locales)[number];
 
 export const localeNames: Record<Locale, string> = {
   en: 'English',
   hr: 'Hrvatski',
   de: 'Deutsch',
+  pl: 'Polski',
+  cs: 'Čeština',
+  it: 'Italiano',
 };
 
 export const contactEmail = 'amoremore.st@gmail.com';
@@ -13,6 +16,9 @@ export const bookingUrls: Record<Locale, string> = {
   en: 'https://www.booking.com/hotel/hr/amoremore-apartments.en-gb.html',
   hr: 'https://www.booking.com/hotel/hr/amoremore-apartments.hr.html',
   de: 'https://www.booking.com/hotel/hr/amoremore-apartments.de.html',
+  pl: 'https://www.booking.com/hotel/hr/amoremore-apartments.pl.html',
+  cs: 'https://www.booking.com/hotel/hr/amoremore-apartments.cs.html',
+  it: 'https://www.booking.com/hotel/hr/amoremore-apartments.it.html',
 };
 
 const en = {
@@ -653,7 +659,643 @@ const de: Translation = {
   },
 };
 
-export const translations: Record<Locale, Translation> = { en, hr, de };
+const pl: Translation = {
+  meta: {
+    title: 'AmoreMore Apartments - morze, miłość i sen w urokliwym Splicie',
+    description:
+      'Dwa zupełnie nowe, luksusowe apartamenty w sercu Splitu. Siedem minut od plaży Bačvice, kilka kroków od Pałacu Dioklecjana.',
+    ogImageAlt: 'Wnętrze apartamentów AmoreMore w Splicie',
+  },
+  nav: {
+    home: 'Start',
+    amore: 'Amore',
+    more: 'More',
+    location: 'Lokalizacja',
+    contact: 'Kontakt',
+    book: 'Zarezerwuj',
+    tips: 'Polecamy',
+    guest: 'Portal gościa',
+  },
+  hero: {
+    kicker: 'Split · Chorwacja',
+    tagline: 'Pływaj, kochaj i śpij w urokliwym Splicie',
+    scroll: 'Przewiń',
+  },
+  story: {
+    kicker: 'Historia',
+    title: 'Miłość i morze pod jednym dachem',
+    p1: 'Amore to po włosku miłość. More to po chorwacku morze. Przy spokojnej uliczce między Pałacem Dioklecjana a plażą Bačvice nasz rodzinny dom kryje dwa zupełnie nowe apartamenty, nazwane na cześć tego, co Split robi najlepiej.',
+    p2: 'Oba wyremontowane od podstaw - kamień, dąb i mosiądz, chłodne powietrze w letnim upale i łóżko, o którym opowiesz znajomym.',
+  },
+  apartments: {
+    kicker: 'Apartamenty',
+    title: 'Wybierz swoją stronę morza',
+    explore: 'Zobacz',
+    amore: {
+      name: 'Amore',
+      type: 'Apartament typu studio',
+      blurb: 'Ciepłe, kameralne studio dla dwojga - wszystko, czego potrzebujesz, w zasięgu ręki i nic ponadto.',
+      sleeps: 'Dla 2 osób',
+    },
+    more: {
+      name: 'More',
+      type: 'Apartament z sypialnią',
+      blurb: 'Osobna sypialnia, salon do leniuchowania i poranki, które zaczynają się powoli na balkonie.',
+      sleeps: 'Dla 2 osób',
+    },
+  },
+  amenities: {
+    kicker: 'Komfort',
+    title: 'Wszystko przemyślane',
+    items: {
+      wifi: 'Szybkie darmowe WiFi',
+      ac: 'Klimatyzacja',
+      balcony: 'Balkon',
+      coffee: 'Ekspres do kawy',
+      dishwasher: 'Zmywarka',
+      oven: 'Piekarnik i pełna kuchnia',
+      desk: 'Biurko do pracy',
+      bathroom: 'Deszczownica',
+      sonos: 'Nagłośnienie Sonos (IKEA Symfonisk)',
+    },
+  },
+  location: {
+    kicker: 'Gdzie się budzisz',
+    title: 'Między pałacem a plażą',
+    body: 'Dom stoi w spokojnej okolicy, krótki spacer od wszystkiego, za co kocha się Split. Zostaw bagaże, złap ręcznik - popływasz, zanim kawa zdąży ostygnąć.',
+    walkToBeach: 'minut pieszo na plażę Bačvice',
+    toPalace: 'km do Pałacu Dioklecjana',
+    toAirport: 'km do lotniska Split',
+    mapLink: 'Otwórz w Mapach Google',
+  },
+  gallery: {
+    kicker: 'W środku',
+    title: 'Rozejrzyj się',
+    viewPhoto: 'Zobacz zdjęcie',
+  },
+  contact: {
+    kicker: 'Napisz do nas',
+    title: 'Pytaj o cokolwiek',
+    body: 'Pytania o terminy, przyjazd czy okolicę - napisz, odpowiadamy szybko.',
+    name: 'Twoje imię',
+    dates: 'Termin (np. 12 - 16 sierpnia)',
+    apartment: 'Apartament',
+    any: 'Którykolwiek',
+    message: 'Wiadomość',
+    send: 'Otwórz szkic e-maila',
+    hint: 'Przycisk otwiera Twoją aplikację pocztową z gotową wiadomością - nic nie wysyła się automatycznie.',
+    emailLabel: 'lub napisz bezpośrednio na',
+  },
+  book: {
+    title: 'Morze czeka',
+    body: 'Napisz do nas z terminem - rezerwacja bezpośrednia to zawsze najlepsza cena.',
+    cta: 'Sprawdź dostępność',
+    alt: 'lub zarezerwuj na',
+  },
+  footer: {
+    rights: 'AmoreMore Apartments, Split',
+  },
+  apartmentPage: {
+    backHome: 'Wróć na stronę główną',
+    amenities: 'Udogodnienia',
+    book: 'Zarezerwuj ten apartament',
+    otherApartment: 'Zobacz drugi apartament',
+    amore: {
+      intro:
+        'Studio nie bez powodu nosi imię Amore: jest małe tak, jak małe bywają dobre rzeczy - ciepłe, przemyślane i całkowicie Twoje. Pełna kuchnia, deszczownica i łóżko w miękkim, mosiężnym świetle.',
+    },
+    more: {
+      intro:
+        'More znaczy morze, a ten apartament płynie jak ono: otwarty salon z kuchnią, sypialnia za własnymi drzwiami i balkon na powolne śniadania.',
+    },
+  },
+  recs: {
+    metaTitle: 'Nasze polecenia w Splicie - AmoreMore Apartments',
+    metaDescription:
+      'Gdzie zjeść i co robić w Splicie - nasi sprawdzeni faworyci, od konob i burgerów po plaże, rejsy i zachody słońca.',
+    kicker: 'Polecamy',
+    title: 'Split, jakim żyjemy na co dzień',
+    intro:
+      'Miejsca, do których wysyłamy przyjaciół - wszystkie sprawdzone, wszystkie blisko domu albo warte spaceru.',
+    eatTitle: 'Gdzie zjeść i wypić',
+    doTitle: 'Co robić',
+    items: {
+      ciba: {
+        name: 'Bistro Ćiba',
+        tag: 'Domowy grill',
+        blurb:
+          'Lokalne bistro bez zadęcia, słynące z ręcznie robionych mięs i kiełbas z grilla, z małych gospodarstw. Tu naprawdę jada Split.',
+      },
+      planb: {
+        name: 'Plan B Pub',
+        tag: 'Burgery i piwo kraftowe',
+        blurb:
+          'Salon dzielnicy Gripe, tuż przy starej twierdzy: wielkie burgery, chorwackie piwa kraftowe i zero turystycznych cen.',
+      },
+      varos: {
+        name: 'Konoba Varoš',
+        tag: 'Tradycyjna dalmatyńska',
+        blurb:
+          'Konoba starej szkoły, która od dekad karmi dzielnicę Varoš - ryby i mięso z grilla oraz dania jak u babci.',
+      },
+      bokeria: {
+        name: 'Bokeria',
+        tag: 'Bistro i winiarnia',
+        blurb:
+          'Tętniące życiem, pięknie urządzone bistro przy placu Pjaca - śródziemnomorskie talerze i jedna z najlepszych kart win w mieście.',
+      },
+      riva: {
+        name: 'Riva',
+        tag: 'Promenada',
+        blurb:
+          'Nadmorski salon Splitu. Weź kawę, patrz, jak wypływają promy, i nie rób kompletnie nic - o to właśnie chodzi.',
+      },
+      palace: {
+        name: 'Pałac Dioklecjana',
+        tag: 'Światowe dziedzictwo',
+        blurb:
+          'Rzymski pałac sprzed 1700 lat, wciąż żywe centrum miasta. Zgub się w uliczkach, a o złotej godzinie odszukaj Perystyl.',
+      },
+      marjan: {
+        name: 'Wzgórze Marjan',
+        tag: 'Widoki i las sosnowy',
+        blurb:
+          'Wejdź schodami z Varoša po najlepszy widok na miasto i wyspy. Najlepiej wcześnie rano albo o zachodzie słońca.',
+      },
+      bacvice: {
+        name: 'Bačvice i picigin',
+        tag: 'Kąpiel',
+        blurb:
+          'Twoja osiedlowa plaża, siedem minut stąd. Popatrz, jak miejscowi grają w picigin - grę wymyśloną właśnie na tej płyciźnie.',
+      },
+      znjan: {
+        name: 'Promenada Žnjan',
+        tag: 'Spacer nad morzem',
+        blurb:
+          'Długie, świeżo odnowione nabrzeże - idealne na poranny bieg albo wieczorny spacer nad samym morzem.',
+      },
+      boat: {
+        name: 'Rejs na wyspy',
+        tag: 'Wycieczka na dzień',
+        blurb:
+          'Z portu w mgnieniu oka dopłyniesz na Hvar, Brač albo do Błękitnej Laguny. Zarezerwuj rejs i spakuj strój kąpielowy.',
+      },
+    },
+  },
+  guest: {
+    metaTitle: 'Portal gościa - AmoreMore Apartments',
+    metaDescription: 'Wszystko, czego potrzebujesz podczas pobytu w AmoreMore Apartments.',
+    kicker: 'Portal gościa',
+    loginTitle: 'Witaj, drogi gościu',
+    loginBody: 'Wpisz hasło z wiadomości z instrukcjami zameldowania.',
+    password: 'Hasło',
+    enter: 'Wejdź',
+    wrong: 'To nie to - spróbuj jeszcze raz.',
+    chooseTitle: 'Gdzie mieszkasz?',
+    wifi: 'WiFi',
+    network: 'Sieć',
+    wifiPassword: 'Hasło',
+    checkin: 'Zameldowanie',
+    checkout: 'Wymeldowanie',
+    from: 'od',
+    until: 'do',
+    entrance: 'Wejście',
+    entranceBody: 'Kod do zielonych drzwi wejściowych',
+    lockerNote: 'Kod do schowka otrzymasz przy zameldowaniu.',
+    contact: 'Jesteśmy do dyspozycji',
+    contactBody: 'Cokolwiek będzie Ci potrzebne podczas pobytu - napisz, odpowiadamy szybko.',
+    recsTitle: 'Głód? Nuda? Nigdy.',
+    recsCta: 'Zobacz nasze polecenia w Splicie',
+    switch: 'Zmień apartament',
+    logout: 'Wyloguj się',
+  },
+};
+
+const cs: Translation = {
+  meta: {
+    title: 'AmoreMore Apartments - moře, láska a spánek v okouzlujícím Splitu',
+    description:
+      'Dva zbrusu nové luxusní apartmány v srdci Splitu. Sedm minut od pláže Bačvice, pár kroků od Diokleciánova paláce.',
+    ogImageAlt: 'Interiér apartmánů AmoreMore ve Splitu',
+  },
+  nav: {
+    home: 'Úvod',
+    amore: 'Amore',
+    more: 'More',
+    location: 'Poloha',
+    contact: 'Kontakt',
+    book: 'Rezervovat',
+    tips: 'Tipy',
+    guest: 'Portál pro hosty',
+  },
+  hero: {
+    kicker: 'Split · Chorvatsko',
+    tagline: 'Plavte, milujte a spěte v okouzlujícím Splitu',
+    scroll: 'Posunout',
+  },
+  story: {
+    kicker: 'Příběh',
+    title: 'Láska a moře pod jednou střechou',
+    p1: 'Amore je italsky láska. More je chorvatsky moře. V klidné uličce mezi Diokleciánovým palácem a pláží Bačvice ukrývá náš rodinný dům dva zbrusu nové apartmány, pojmenované po tom, co Split umí nejlépe.',
+    p2: 'Oba prošly kompletní rekonstrukcí - kámen, dub a mosaz, chladný vzduch v letním vedru a postel, o které budete vyprávět.',
+  },
+  apartments: {
+    kicker: 'Apartmány',
+    title: 'Vyberte si svou stranu moře',
+    explore: 'Prohlédnout',
+    amore: {
+      name: 'Amore',
+      type: 'Studio',
+      blurb: 'Teplé, útulné studio pro dva - vše, co potřebujete, na dosah ruky, a nic navíc.',
+      sleeps: 'Pro 2 osoby',
+    },
+    more: {
+      name: 'More',
+      type: 'Apartmán s ložnicí',
+      blurb: 'Samostatná ložnice, obývák na lenošení a rána, která začínají pomalu na balkoně.',
+      sleeps: 'Pro 2 osoby',
+    },
+  },
+  amenities: {
+    kicker: 'Pohodlí',
+    title: 'Vše promyšlené',
+    items: {
+      wifi: 'Rychlá WiFi zdarma',
+      ac: 'Klimatizace',
+      balcony: 'Balkon',
+      coffee: 'Kávovar',
+      dishwasher: 'Myčka',
+      oven: 'Trouba a plně vybavená kuchyň',
+      desk: 'Pracovní stůl',
+      bathroom: 'Dešťová sprcha',
+      sonos: 'Zvuk Sonos (IKEA Symfonisk)',
+    },
+  },
+  location: {
+    kicker: 'Kde se probouzíte',
+    title: 'Mezi palácem a pláží',
+    body: 'Dům stojí v klidné čtvrti, kousek pěšky od všeho, za co lidé Split milují. Odložte tašky, popadněte ručník a plavete dřív, než vám vystydne káva.',
+    walkToBeach: 'minut pěšky na pláž Bačvice',
+    toPalace: 'km k Diokleciánovu paláci',
+    toAirport: 'km na letiště Split',
+    mapLink: 'Otevřít v Mapách Google',
+  },
+  gallery: {
+    kicker: 'Uvnitř',
+    title: 'Rozhlédněte se',
+    viewPhoto: 'Zobrazit fotku',
+  },
+  contact: {
+    kicker: 'Ozvěte se',
+    title: 'Zeptejte se na cokoli',
+    body: 'Otázky k termínům, příjezdu nebo okolí - napište nám, odpovídáme rychle.',
+    name: 'Vaše jméno',
+    dates: 'Termín (např. 12. - 16. srpna)',
+    apartment: 'Apartmán',
+    any: 'Kterýkoli',
+    message: 'Zpráva',
+    send: 'Otevřít koncept e-mailu',
+    hint: 'Tlačítko otevře vaši e-mailovou aplikaci s předvyplněnou zprávou - nic se neodesílá automaticky.',
+    emailLabel: 'nebo napište přímo na',
+  },
+  book: {
+    title: 'Moře čeká',
+    body: 'Napište nám svůj termín - přímá rezervace znamená vždy nejlepší cenu.',
+    cta: 'Ověřit dostupnost',
+    alt: 'nebo rezervujte na',
+  },
+  footer: {
+    rights: 'AmoreMore Apartments, Split',
+  },
+  apartmentPage: {
+    backHome: 'Zpět na úvod',
+    amenities: 'Vybavení',
+    book: 'Rezervovat tento apartmán',
+    otherApartment: 'Prohlédnout druhý apartmán',
+    amore: {
+      intro:
+        'Studio nese jméno Amore z dobrého důvodu: je malé tak, jak bývají malé dobré věci - teplé, promyšlené a jen vaše. Plně vybavená kuchyň, dešťová sprcha a postel v měkkém mosazném světle.',
+    },
+    more: {
+      intro:
+        'More znamená moře a tento apartmán plyne jako ono: otevřený obývák s kuchyní, ložnice za vlastními dveřmi a balkon na pomalé snídaně.',
+    },
+  },
+  recs: {
+    metaTitle: 'Naše tipy na Split - AmoreMore Apartments',
+    metaDescription:
+      'Kde jíst a co dělat ve Splitu - naši poctiví favorité, od konob a burgerů po pláže, výlety lodí a západy slunce.',
+    kicker: 'Tipy',
+    title: 'Split, jak ho žijeme my',
+    intro:
+      'Místa, kam posíláme své přátele - všechna vyzkoušená, všechna blízko domu nebo stojí za procházku.',
+    eatTitle: 'Kde jíst a pít',
+    doTitle: 'Co podniknout',
+    items: {
+      ciba: {
+        name: 'Bistro Ćiba',
+        tag: 'Domácí gril',
+        blurb:
+          'Nenucené místní bistro proslulé ručně dělaným grilovaným masem a klobásami z malých farem. Tady Split opravdu jí.',
+      },
+      planb: {
+        name: 'Plan B Pub',
+        tag: 'Burgery a craft pivo',
+        blurb:
+          'Obývák čtvrti Gripe hned u staré pevnosti: velké burgery, chorvatská craft piva a žádné turistické přirážky.',
+      },
+      varos: {
+        name: 'Konoba Varoš',
+        tag: 'Tradiční dalmatská',
+        blurb:
+          'Konoba staré školy, která už desítky let sytí čtvrť Varoš - ryby a maso z grilu a jídla jako od babičky.',
+      },
+      bokeria: {
+        name: 'Bokeria',
+        tag: 'Bistro a vinný bar',
+        blurb:
+          'Živé, krásně zařízené bistro u náměstí Pjaca - středomořské talíře a jeden z nejlepších vinných lístků ve městě.',
+      },
+      riva: {
+        name: 'Riva',
+        tag: 'Promenáda',
+        blurb:
+          'Splitský obývák u moře. Dejte si kávu, sledujte vyplouvající trajekty a nedělejte vůbec nic - přesně o to jde.',
+      },
+      palace: {
+        name: 'Diokleciánův palác',
+        tag: 'Světové dědictví',
+        blurb:
+          'Římský palác starý 1700 let, který je stále živým centrem města. Ztraťte se v uličkách a při zlaté hodince najděte Peristyl.',
+      },
+      marjan: {
+        name: 'Vrch Marjan',
+        tag: 'Výhledy a borový les',
+        blurb:
+          'Vyjděte po schodech z Varoše za nejlepším výhledem na město a ostrovy. Nejlépe brzy ráno nebo při západu slunce.',
+      },
+      bacvice: {
+        name: 'Bačvice a picigin',
+        tag: 'Koupání',
+        blurb:
+          'Vaše místní pláž, sedm minut pěšky. Sledujte místní při hře picigin - hře vymyšlené právě v této mělčině.',
+      },
+      znjan: {
+        name: 'Promenáda Žnjan',
+        tag: 'Procházka u moře',
+        blurb:
+          'Dlouhé, čerstvě zrekonstruované nábřeží - ideální na ranní běh nebo večerní procházku u moře.',
+      },
+      boat: {
+        name: 'Výlet lodí na ostrovy',
+        tag: 'Celodenní výlet',
+        blurb:
+          'Z přístavu jste za chvíli na Hvaru, Brači nebo v Modré laguně. Zarezervujte si výlet a přibalte plavky.',
+      },
+    },
+  },
+  guest: {
+    metaTitle: 'Portál pro hosty - AmoreMore Apartments',
+    metaDescription: 'Vše, co během pobytu v AmoreMore Apartments potřebujete.',
+    kicker: 'Portál pro hosty',
+    loginTitle: 'Vítejte, milý hoste',
+    loginBody: 'Zadejte heslo ze zprávy s pokyny k příjezdu.',
+    password: 'Heslo',
+    enter: 'Vstoupit',
+    wrong: 'To není ono - zkuste to znovu.',
+    chooseTitle: 'Kde jste ubytováni?',
+    wifi: 'WiFi',
+    network: 'Síť',
+    wifiPassword: 'Heslo',
+    checkin: 'Check-in',
+    checkout: 'Check-out',
+    from: 'od',
+    until: 'do',
+    entrance: 'Vchod',
+    entranceBody: 'Kód k zeleným vchodovým dveřím',
+    lockerNote: 'Kód od schránky dostanete při check-inu.',
+    contact: 'Jsme tu pro vás',
+    contactBody: 'Cokoli budete během pobytu potřebovat - napište nám, odpovídáme rychle.',
+    recsTitle: 'Hlad? Nuda? Nikdy.',
+    recsCta: 'Podívejte se na naše tipy na Split',
+    switch: 'Změnit apartmán',
+    logout: 'Odhlásit se',
+  },
+};
+
+const it: Translation = {
+  meta: {
+    title: 'AmoreMore Apartments - mare, amore e sonno nell’incantevole Spalato',
+    description:
+      'Due appartamenti di lusso completamente nuovi nel cuore di Spalato. A sette minuti dalla spiaggia di Bačvice, a pochi passi dal Palazzo di Diocleziano.',
+    ogImageAlt: 'Interni degli appartamenti AmoreMore a Spalato',
+  },
+  nav: {
+    home: 'Home',
+    amore: 'Amore',
+    more: 'More',
+    location: 'Posizione',
+    contact: 'Contatti',
+    book: 'Prenota ora',
+    tips: 'Consigli',
+    guest: 'Portale ospiti',
+  },
+  hero: {
+    kicker: 'Spalato · Croazia',
+    tagline: 'Nuota, ama e dormi nell’incantevole Spalato',
+    scroll: 'Scorri',
+  },
+  story: {
+    kicker: 'La storia',
+    title: 'L’amore e il mare, sotto lo stesso tetto',
+    p1: 'Amore è l’amore. More è il mare in croato. In una via tranquilla tra il Palazzo di Diocleziano e la spiaggia di Bačvice, la nostra casa di famiglia custodisce due appartamenti completamente nuovi, che portano il nome delle due cose che Spalato sa fare meglio.',
+    p2: 'Entrambi ristrutturati da cima a fondo - pietra, rovere e ottone, aria fresca nella calura estiva e un letto di cui parlerete a lungo.',
+  },
+  apartments: {
+    kicker: 'Gli appartamenti',
+    title: 'Scegli il tuo lato del mare',
+    explore: 'Scopri',
+    amore: {
+      name: 'Amore',
+      type: 'Monolocale',
+      blurb: 'Uno studio caldo e intimo per due - tutto ciò che serve a portata di mano, e niente di superfluo.',
+      sleeps: 'Per 2 persone',
+    },
+    more: {
+      name: 'More',
+      type: 'Appartamento con camera da letto',
+      blurb: 'Una camera separata, un soggiorno in cui indugiare e mattine che iniziano lente sul balcone.',
+      sleeps: 'Per 2 persone',
+    },
+  },
+  amenities: {
+    kicker: 'Comfort',
+    title: 'Tutto, pensato nei dettagli',
+    items: {
+      wifi: 'WiFi veloce e gratuito',
+      ac: 'Aria condizionata',
+      balcony: 'Balcone',
+      coffee: 'Macchina del caffè',
+      dishwasher: 'Lavastoviglie',
+      oven: 'Forno e cucina completa',
+      desk: 'Scrivania',
+      bathroom: 'Doccia a pioggia',
+      sonos: 'Audio Sonos (IKEA Symfonisk)',
+    },
+  },
+  location: {
+    kicker: 'Dove ti svegli',
+    title: 'Tra il palazzo e la spiaggia',
+    body: 'La casa si trova in un quartiere tranquillo, a due passi da tutto ciò per cui Spalato è amata. Posa le valigie, prendi un telo e sei in acqua prima che il caffè si raffreddi.',
+    walkToBeach: 'minuti a piedi dalla spiaggia di Bačvice',
+    toPalace: 'km dal Palazzo di Diocleziano',
+    toAirport: 'km dall’aeroporto di Spalato',
+    mapLink: 'Apri in Google Maps',
+  },
+  gallery: {
+    kicker: 'Dentro',
+    title: 'Dai un’occhiata',
+    viewPhoto: 'Guarda la foto',
+  },
+  contact: {
+    kicker: 'Scrivici',
+    title: 'Chiedici qualsiasi cosa',
+    body: 'Domande su date, arrivo o quartiere - scrivici e rispondiamo in fretta.',
+    name: 'Il tuo nome',
+    dates: 'Date (es. 12 - 16 agosto)',
+    apartment: 'Appartamento',
+    any: 'Uno qualsiasi',
+    message: 'Messaggio',
+    send: 'Apri bozza e-mail',
+    hint: 'Il pulsante apre la tua app di posta con il messaggio già compilato - nulla viene inviato automaticamente.',
+    emailLabel: 'oppure scrivi direttamente a',
+  },
+  book: {
+    title: 'Il mare ti aspetta',
+    body: 'Scrivici le tue date - prenotare direttamente significa sempre il miglior prezzo.',
+    cta: 'Verifica disponibilità',
+    alt: 'oppure prenota su',
+  },
+  footer: {
+    rights: 'AmoreMore Apartments, Split',
+  },
+  apartmentPage: {
+    backHome: 'Torna alla home',
+    amenities: 'Servizi',
+    book: 'Prenota questo appartamento',
+    otherApartment: 'Guarda l’altro appartamento',
+    amore: {
+      intro:
+        'Lo studio porta il nome Amore per una ragione: è piccolo come lo sono le cose belle - caldo, curato e tutto tuo. Cucina completa, doccia a pioggia e un letto sotto una morbida luce d’ottone.',
+    },
+    more: {
+      intro:
+        'More significa mare, e questo appartamento scorre come lui: soggiorno aperto con cucina, una camera dietro la propria porta e un balcone per colazioni lente.',
+    },
+  },
+  recs: {
+    metaTitle: 'I nostri consigli su Spalato - AmoreMore Apartments',
+    metaDescription:
+      'Dove mangiare e cosa fare a Spalato - i nostri veri preferiti, dalle konobe e i burger alle spiagge, alle gite in barca e ai tramonti.',
+    kicker: 'Consigli',
+    title: 'Spalato, come la viviamo noi',
+    intro:
+      'I posti dove mandiamo i nostri amici - tutti provati, tutti vicini a casa o degni di una passeggiata.',
+    eatTitle: 'Dove mangiare e bere',
+    doTitle: 'Cosa fare',
+    items: {
+      ciba: {
+        name: 'Bistro Ćiba',
+        tag: 'Griglia casereccia',
+        blurb:
+          'Un bistrot locale senza fronzoli, amato per carni e salsicce alla griglia fatte a mano, da piccole fattorie. È qui che Spalato mangia davvero.',
+      },
+      planb: {
+        name: 'Plan B Pub',
+        tag: 'Burger e birra artigianale',
+        blurb:
+          'Il salotto del quartiere Gripe, proprio accanto alla vecchia fortezza: burger generosi, birre artigianali croate e zero sovrapprezzi turistici.',
+      },
+      varos: {
+        name: 'Konoba Varoš',
+        tag: 'Tradizione dalmata',
+        blurb:
+          'Una konoba di vecchia scuola che sfama il quartiere Varoš da decenni - pesce e carne alla griglia e piatti come quelli della nonna.',
+      },
+      bokeria: {
+        name: 'Bokeria',
+        tag: 'Bistrot e wine bar',
+        blurb:
+          'Un bistrot vivace e curato vicino alla Pjaca - piatti mediterranei e una delle migliori carte dei vini della città.',
+      },
+      riva: {
+        name: 'Riva',
+        tag: 'La passeggiata',
+        blurb:
+          'Il salotto sul mare di Spalato. Prendi un caffè, guarda i traghetti salpare e non fare assolutamente niente - il punto è proprio questo.',
+      },
+      palace: {
+        name: 'Palazzo di Diocleziano',
+        tag: 'Patrimonio dell’umanità',
+        blurb:
+          'Un palazzo romano di 1700 anni che è ancora il cuore vivo della città. Perditi nei vicoli, poi trova il Peristilio all’ora dorata.',
+      },
+      marjan: {
+        name: 'Collina Marjan',
+        tag: 'Panorami e pineta',
+        blurb:
+          'Sali le scale dal Varoš per la vista più bella sulla città e sulle isole. Meglio al mattino presto o al tramonto.',
+      },
+      bacvice: {
+        name: 'Bačvice e picigin',
+        tag: 'Nuotare',
+        blurb:
+          'La tua spiaggia di quartiere, a sette minuti. Guarda i locali giocare a picigin - un gioco inventato proprio in questi bassi fondali.',
+      },
+      znjan: {
+        name: 'Lungomare di Žnjan',
+        tag: 'Passeggiata sul mare',
+        blurb:
+          'Un lungomare lungo e appena rinnovato, perfetto per la corsa mattutina o la passeggiata serale in riva al mare.',
+      },
+      boat: {
+        name: 'In barca verso le isole',
+        tag: 'Gita di un giorno',
+        blurb:
+          'Dal porto raggiungi in un attimo Hvar, Brač o la Laguna Blu. Prenota un’escursione e porta il costume.',
+      },
+    },
+  },
+  guest: {
+    metaTitle: 'Portale ospiti - AmoreMore Apartments',
+    metaDescription: 'Tutto ciò che ti serve durante il soggiorno agli AmoreMore Apartments.',
+    kicker: 'Portale ospiti',
+    loginTitle: 'Benvenuto, caro ospite',
+    loginBody: 'Inserisci la password dal messaggio con le istruzioni per il check-in.',
+    password: 'Password',
+    enter: 'Entra',
+    wrong: 'Non è questa - riprova.',
+    chooseTitle: 'Dove alloggi?',
+    wifi: 'WiFi',
+    network: 'Rete',
+    wifiPassword: 'Password',
+    checkin: 'Check-in',
+    checkout: 'Check-out',
+    from: 'dalle',
+    until: 'entro le',
+    entrance: 'Ingresso',
+    entranceBody: 'Il codice della porta d’ingresso verde',
+    lockerNote: 'Il codice del locker ti verrà dato al check-in.',
+    contact: 'Siamo qui per te',
+    contactBody: 'Qualsiasi cosa ti serva durante il soggiorno - scrivici e rispondiamo in fretta.',
+    recsTitle: 'Fame? Noia? Mai.',
+    recsCta: 'Scopri i nostri consigli su Spalato',
+    switch: 'Cambia appartamento',
+    logout: 'Esci',
+  },
+};
+
+export const translations: Record<Locale, Translation> = { en, hr, de, pl, cs, it };
 
 export function useTranslations(locale: Locale): Translation {
   return translations[locale];
