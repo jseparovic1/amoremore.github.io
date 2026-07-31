@@ -147,29 +147,17 @@ const en = {
         blurb:
           'The living room of the Gripe neighbourhood, right by the old fortress: big burgers, Croatian craft beers and zero tourist markup.',
       },
-      spiza: {
-        name: 'Villa Spiza',
-        tag: 'Dalmatian daily menu',
+      varos: {
+        name: 'Konoba Varoš',
+        tag: 'Traditional Dalmatian',
         blurb:
-          'A tiny konoba in the old town cooking whatever was good at the market that morning. Expect a queue - it moves, and it is worth it.',
-      },
-      fetivi: {
-        name: 'Konoba Fetivi',
-        tag: 'Fish & seafood',
-        blurb:
-          'A family-run tavern in Varoš doing fresh fish the Dalmatian way. Order the catch of the day and a carafe of house white.',
+          'An old-school konoba that has been feeding the Varoš neighbourhood for decades - grilled fish and meat, and dishes the way grandmothers used to make them.',
       },
       bokeria: {
         name: 'Bokeria',
         tag: 'Bistro & wine bar',
         blurb:
           'A lively, good-looking bistro near Pjaca - Mediterranean plates and one of the best wine lists in town.',
-      },
-      luka: {
-        name: 'Luka Ice Cream & Cakes',
-        tag: 'Gelato',
-        blurb:
-          'Split’s favourite ice cream, made in-house daily. The perfect excuse for a slow walk back from the palace.',
       },
       riva: {
         name: 'Riva',
@@ -206,18 +194,6 @@ const en = {
         tag: 'Day trip',
         blurb:
           'From the harbour you can reach Hvar, Brač or the Blue Lagoon in no time. Book a day tour and pack your swimsuit.',
-      },
-      matejuska: {
-        name: 'Matejuška',
-        tag: 'Sunset spot',
-        blurb:
-          'The little fishermen’s port where locals sit on the pier with a cold drink and watch the sun go down.',
-      },
-      pazar: {
-        name: 'Pazar green market',
-        tag: 'Market',
-        blurb:
-          'The open-air market by the palace walls - figs, tomatoes, cheese - everything you need for a slow breakfast on your balcony.',
       },
     },
   },
@@ -357,29 +333,17 @@ const hr: Translation = {
         blurb:
           'Dnevni boravak Gripa, odmah uz staru tvrđavu: veliki burgeri, hrvatska craft piva i nula turističke marže.',
       },
-      spiza: {
-        name: 'Villa Spiza',
-        tag: 'Dalmatinska dnevna spiza',
+      varos: {
+        name: 'Konoba Varoš',
+        tag: 'Tradicionalna dalmatinska',
         blurb:
-          'Mala konoba u staroj gradskoj jezgri koja kuha ono što je tog jutra bilo dobro na pazaru. Očekujte red - miče se, i vrijedi.',
-      },
-      fetivi: {
-        name: 'Konoba Fetivi',
-        tag: 'Riba i plodovi mora',
-        blurb:
-          'Obiteljska konoba u Varošu koja radi svježu ribu na dalmatinski način. Naručite ulov dana i bokal domaćeg bijelog.',
+          'Konoba stare škole koja Varoš hrani desetljećima - riba i meso s gradela i jela kakva su radile none.',
       },
       bokeria: {
         name: 'Bokeria',
         tag: 'Bistro i vinski bar',
         blurb:
           'Živahan, lijepo uređen bistro kod Pjace - mediteranski tanjuri i jedna od najboljih vinskih karata u gradu.',
-      },
-      luka: {
-        name: 'Luka Ice Cream & Cakes',
-        tag: 'Sladoled',
-        blurb:
-          'Najdraži splitski sladoled, svaki dan svježe rađen u kući. Savršena isprika za polaganu šetnju od palače.',
       },
       riva: {
         name: 'Riva',
@@ -416,18 +380,6 @@ const hr: Translation = {
         tag: 'Jednodnevni izlet',
         blurb:
           'Iz luke ste za čas na Hvaru, Braču ili u Modroj laguni. Rezervirajte izlet i ponesite kupaći.',
-      },
-      matejuska: {
-        name: 'Matejuška',
-        tag: 'Zalazak sunca',
-        blurb:
-          'Mala ribarska lučica gdje lokalci sjede na rivici s hladnim pićem i gledaju kako sunce zalazi.',
-      },
-      pazar: {
-        name: 'Pazar',
-        tag: 'Tržnica',
-        blurb:
-          'Tržnica na otvorenom uz zidine palače - smokve, pomidori, sir - sve što treba za polagani doručak na balkonu.',
       },
     },
   },
@@ -565,29 +517,17 @@ const de: Translation = {
         blurb:
           'Das Wohnzimmer des Viertels Gripe, direkt an der alten Festung: große Burger, kroatische Craft-Biere und null Touristenaufschlag.',
       },
-      spiza: {
-        name: 'Villa Spiza',
-        tag: 'Dalmatinische Tageskarte',
+      varos: {
+        name: 'Konoba Varoš',
+        tag: 'Traditionell dalmatinisch',
         blurb:
-          'Eine winzige Konoba in der Altstadt, die kocht, was morgens auf dem Markt gut war. Es gibt eine Schlange - sie bewegt sich, und es lohnt sich.',
-      },
-      fetivi: {
-        name: 'Konoba Fetivi',
-        tag: 'Fisch & Meeresfrüchte',
-        blurb:
-          'Eine familiengeführte Taverne in Varoš mit frischem Fisch auf dalmatinische Art. Bestellen Sie den Fang des Tages und eine Karaffe Hauswein.',
+          'Eine Konoba alter Schule, die das Viertel Varoš seit Jahrzehnten satt macht - gegrillter Fisch und Fleisch, und Gerichte wie von der Großmutter.',
       },
       bokeria: {
         name: 'Bokeria',
         tag: 'Bistro & Weinbar',
         blurb:
           'Ein lebhaftes, schön gestaltetes Bistro nahe der Pjaca - mediterrane Teller und eine der besten Weinkarten der Stadt.',
-      },
-      luka: {
-        name: 'Luka Ice Cream & Cakes',
-        tag: 'Eis',
-        blurb:
-          'Splits liebstes Eis, täglich frisch im Haus gemacht. Die perfekte Ausrede für einen langsamen Spaziergang vom Palast zurück.',
       },
       riva: {
         name: 'Riva',
@@ -624,18 +564,6 @@ const de: Translation = {
         tag: 'Tagesausflug',
         blurb:
           'Vom Hafen aus erreichen Sie Hvar, Brač oder die Blaue Lagune im Handumdrehen. Tagestour buchen, Badesachen einpacken.',
-      },
-      matejuska: {
-        name: 'Matejuška',
-        tag: 'Sonnenuntergang',
-        blurb:
-          'Der kleine Fischerhafen, wo die Einheimischen mit einem kalten Getränk auf der Mole sitzen und die Sonne untergehen sehen.',
-      },
-      pazar: {
-        name: 'Pazar-Markt',
-        tag: 'Markt',
-        blurb:
-          'Der Markt unter freiem Himmel an der Palastmauer - Feigen, Tomaten, Käse - alles für ein langsames Frühstück auf dem Balkon.',
       },
     },
   },
