@@ -29,6 +29,7 @@ const en = {
     location: 'Location',
     contact: 'Contact',
     book: 'Book now',
+    tips: 'Tips',
   },
   hero: {
     kicker: 'Split · Croatia',
@@ -123,6 +124,103 @@ const en = {
         'More means the sea, and this one-bedroom apartment flows like it: an open living room and kitchen, a bedroom behind its own door, and a balcony for slow breakfasts.',
     },
   },
+  recs: {
+    metaTitle: 'Our Split recommendations - AmoreMore Apartments',
+    metaDescription:
+      'Where to eat and what to do in Split - our honest local favourites, from konobas and burgers to beaches, boat tours and sunset spots.',
+    kicker: 'Recommendations',
+    title: 'Split, the way we live it',
+    intro:
+      'The places we send our friends to - all tested by us, all close to the house or worth the walk.',
+    eatTitle: 'Where to eat & drink',
+    doTitle: 'What to do',
+    items: {
+      ciba: {
+        name: 'Bistro Ćiba',
+        tag: 'Homemade grill',
+        blurb:
+          'A no-fuss local bistro loved for handmade grilled meat and sausages from small farms. This is where Split actually eats.',
+      },
+      planb: {
+        name: 'Plan B Pub',
+        tag: 'Burgers & craft beer',
+        blurb:
+          'The living room of the Gripe neighbourhood, right by the old fortress: big burgers, Croatian craft beers and zero tourist markup.',
+      },
+      spiza: {
+        name: 'Villa Spiza',
+        tag: 'Dalmatian daily menu',
+        blurb:
+          'A tiny konoba in the old town cooking whatever was good at the market that morning. Expect a queue - it moves, and it is worth it.',
+      },
+      fetivi: {
+        name: 'Konoba Fetivi',
+        tag: 'Fish & seafood',
+        blurb:
+          'A family-run tavern in Varoš doing fresh fish the Dalmatian way. Order the catch of the day and a carafe of house white.',
+      },
+      bokeria: {
+        name: 'Bokeria',
+        tag: 'Bistro & wine bar',
+        blurb:
+          'A lively, good-looking bistro near Pjaca - Mediterranean plates and one of the best wine lists in town.',
+      },
+      luka: {
+        name: 'Luka Ice Cream & Cakes',
+        tag: 'Gelato',
+        blurb:
+          'Split’s favourite ice cream, made in-house daily. The perfect excuse for a slow walk back from the palace.',
+      },
+      riva: {
+        name: 'Riva',
+        tag: 'The promenade',
+        blurb:
+          'Split’s seafront living room. Grab a coffee, watch the ferries glide out and do absolutely nothing - that is the point.',
+      },
+      palace: {
+        name: 'Diocletian’s Palace',
+        tag: 'World heritage',
+        blurb:
+          'A 1,700-year-old Roman palace that is still the living centre of town. Get lost in the alleys, then find Peristil at golden hour.',
+      },
+      marjan: {
+        name: 'Marjan hill',
+        tag: 'Views & pine forest',
+        blurb:
+          'Climb the stairs from Varoš for the best view of the city and the islands. Go early in the morning or for sunset.',
+      },
+      bacvice: {
+        name: 'Bačvice & picigin',
+        tag: 'Swimming',
+        blurb:
+          'Your local beach, seven minutes away. Watch the locals play picigin - a ball game invented right here in the shallows.',
+      },
+      znjan: {
+        name: 'Žnjan promenade',
+        tag: 'Seaside walk',
+        blurb:
+          'A long, freshly renovated waterfront perfect for a morning run or an evening stroll along the sea.',
+      },
+      boat: {
+        name: 'Boat tour to the islands',
+        tag: 'Day trip',
+        blurb:
+          'From the harbour you can reach Hvar, Brač or the Blue Lagoon in no time. Book a day tour and pack your swimsuit.',
+      },
+      matejuska: {
+        name: 'Matejuška',
+        tag: 'Sunset spot',
+        blurb:
+          'The little fishermen’s port where locals sit on the pier with a cold drink and watch the sun go down.',
+      },
+      pazar: {
+        name: 'Pazar green market',
+        tag: 'Market',
+        blurb:
+          'The open-air market by the palace walls - figs, tomatoes, cheese - everything you need for a slow breakfast on your balcony.',
+      },
+    },
+  },
 };
 
 export type Translation = typeof en;
@@ -141,6 +239,7 @@ const hr: Translation = {
     location: 'Lokacija',
     contact: 'Kontakt',
     book: 'Rezerviraj',
+    tips: 'Preporuke',
   },
   hero: {
     kicker: 'Split · Hrvatska',
@@ -235,6 +334,103 @@ const hr: Translation = {
         'More znači more, a ovaj apartman teče poput njega: otvoreni dnevni boravak s kuhinjom, spavaća soba iza vlastitih vrata i balkon za spora jutra.',
     },
   },
+  recs: {
+    metaTitle: 'Naše preporuke za Split - AmoreMore Apartments',
+    metaDescription:
+      'Gdje jesti i što raditi u Splitu - naši iskreni favoriti, od konoba i burgera do plaža, izleta brodom i mjesta za zalazak sunca.',
+    kicker: 'Preporuke',
+    title: 'Split, onako kako ga mi živimo',
+    intro:
+      'Mjesta na koja šaljemo svoje prijatelje - sva provjerena, sva blizu kuće ili vrijedna šetnje.',
+    eatTitle: 'Gdje jesti i piti',
+    doTitle: 'Što raditi',
+    items: {
+      ciba: {
+        name: 'Bistro Ćiba',
+        tag: 'Domaći grill',
+        blurb:
+          'Bistro bez pretenzija, poznat po domaćem mesu i kobasicama s roštilja, s malih farmi. Ovdje Split stvarno jede.',
+      },
+      planb: {
+        name: 'Plan B Pub',
+        tag: 'Burgeri i craft pivo',
+        blurb:
+          'Dnevni boravak Gripa, odmah uz staru tvrđavu: veliki burgeri, hrvatska craft piva i nula turističke marže.',
+      },
+      spiza: {
+        name: 'Villa Spiza',
+        tag: 'Dalmatinska dnevna spiza',
+        blurb:
+          'Mala konoba u staroj gradskoj jezgri koja kuha ono što je tog jutra bilo dobro na pazaru. Očekujte red - miče se, i vrijedi.',
+      },
+      fetivi: {
+        name: 'Konoba Fetivi',
+        tag: 'Riba i plodovi mora',
+        blurb:
+          'Obiteljska konoba u Varošu koja radi svježu ribu na dalmatinski način. Naručite ulov dana i bokal domaćeg bijelog.',
+      },
+      bokeria: {
+        name: 'Bokeria',
+        tag: 'Bistro i vinski bar',
+        blurb:
+          'Živahan, lijepo uređen bistro kod Pjace - mediteranski tanjuri i jedna od najboljih vinskih karata u gradu.',
+      },
+      luka: {
+        name: 'Luka Ice Cream & Cakes',
+        tag: 'Sladoled',
+        blurb:
+          'Najdraži splitski sladoled, svaki dan svježe rađen u kući. Savršena isprika za polaganu šetnju od palače.',
+      },
+      riva: {
+        name: 'Riva',
+        tag: 'Šetnica',
+        blurb:
+          'Splitski dnevni boravak uz more. Uzmite kavu, gledajte trajekte kako isplovljavaju i ne radite baš ništa - u tome je poanta.',
+      },
+      palace: {
+        name: 'Dioklecijanova palača',
+        tag: 'Svjetska baština',
+        blurb:
+          'Rimska palača stara 1700 godina koja je i dalje živo srce grada. Izgubite se u kalama, pa nađite Peristil u zlatni sat.',
+      },
+      marjan: {
+        name: 'Marjan',
+        tag: 'Vidikovci i borova šuma',
+        blurb:
+          'Popnite se stubama iz Varoša do najboljeg pogleda na grad i otoke. Idite rano ujutro ili na zalazak.',
+      },
+      bacvice: {
+        name: 'Bačvice i picigin',
+        tag: 'Kupanje',
+        blurb:
+          'Vaša kvartovska plaža, sedam minuta hoda. Gledajte lokalce kako igraju picigin - igru izmišljenu baš u ovom plićaku.',
+      },
+      znjan: {
+        name: 'Žnjanska šetnica',
+        tag: 'Šetnja uz more',
+        blurb:
+          'Duga, svježe uređena obala savršena za jutarnje trčanje ili večernju šetnju uz more.',
+      },
+      boat: {
+        name: 'Izlet brodom na otoke',
+        tag: 'Jednodnevni izlet',
+        blurb:
+          'Iz luke ste za čas na Hvaru, Braču ili u Modroj laguni. Rezervirajte izlet i ponesite kupaći.',
+      },
+      matejuska: {
+        name: 'Matejuška',
+        tag: 'Zalazak sunca',
+        blurb:
+          'Mala ribarska lučica gdje lokalci sjede na rivici s hladnim pićem i gledaju kako sunce zalazi.',
+      },
+      pazar: {
+        name: 'Pazar',
+        tag: 'Tržnica',
+        blurb:
+          'Tržnica na otvorenom uz zidine palače - smokve, pomidori, sir - sve što treba za polagani doručak na balkonu.',
+      },
+    },
+  },
 };
 
 const de: Translation = {
@@ -251,6 +447,7 @@ const de: Translation = {
     location: 'Lage',
     contact: 'Kontakt',
     book: 'Jetzt buchen',
+    tips: 'Tipps',
   },
   hero: {
     kicker: 'Split · Kroatien',
@@ -343,6 +540,103 @@ const de: Translation = {
     more: {
       intro:
         'More bedeutet Meer, und dieses Apartment fließt wie das Wasser: offenes Wohnzimmer mit Küche, ein Schlafzimmer hinter eigener Tür und ein Balkon für langsame Frühstücke.',
+    },
+  },
+  recs: {
+    metaTitle: 'Unsere Split-Empfehlungen - AmoreMore Apartments',
+    metaDescription:
+      'Wo man in Split isst und was man unternimmt - unsere ehrlichen Favoriten, von Konobas und Burgern bis zu Stränden, Bootstouren und Sonnenuntergängen.',
+    kicker: 'Empfehlungen',
+    title: 'Split, wie wir es leben',
+    intro:
+      'Die Orte, zu denen wir unsere Freunde schicken - alle selbst getestet, alle nah am Haus oder den Weg wert.',
+    eatTitle: 'Essen & Trinken',
+    doTitle: 'Was man unternimmt',
+    items: {
+      ciba: {
+        name: 'Bistro Ćiba',
+        tag: 'Hausgemachter Grill',
+        blurb:
+          'Ein unprätentiöses lokales Bistro, geliebt für handgemachtes Grillfleisch und Würste von kleinen Höfen. Hier isst Split wirklich.',
+      },
+      planb: {
+        name: 'Plan B Pub',
+        tag: 'Burger & Craft-Bier',
+        blurb:
+          'Das Wohnzimmer des Viertels Gripe, direkt an der alten Festung: große Burger, kroatische Craft-Biere und null Touristenaufschlag.',
+      },
+      spiza: {
+        name: 'Villa Spiza',
+        tag: 'Dalmatinische Tageskarte',
+        blurb:
+          'Eine winzige Konoba in der Altstadt, die kocht, was morgens auf dem Markt gut war. Es gibt eine Schlange - sie bewegt sich, und es lohnt sich.',
+      },
+      fetivi: {
+        name: 'Konoba Fetivi',
+        tag: 'Fisch & Meeresfrüchte',
+        blurb:
+          'Eine familiengeführte Taverne in Varoš mit frischem Fisch auf dalmatinische Art. Bestellen Sie den Fang des Tages und eine Karaffe Hauswein.',
+      },
+      bokeria: {
+        name: 'Bokeria',
+        tag: 'Bistro & Weinbar',
+        blurb:
+          'Ein lebhaftes, schön gestaltetes Bistro nahe der Pjaca - mediterrane Teller und eine der besten Weinkarten der Stadt.',
+      },
+      luka: {
+        name: 'Luka Ice Cream & Cakes',
+        tag: 'Eis',
+        blurb:
+          'Splits liebstes Eis, täglich frisch im Haus gemacht. Die perfekte Ausrede für einen langsamen Spaziergang vom Palast zurück.',
+      },
+      riva: {
+        name: 'Riva',
+        tag: 'Die Promenade',
+        blurb:
+          'Splits Wohnzimmer am Meer. Kaffee holen, den Fähren beim Auslaufen zusehen und einfach gar nichts tun - genau darum geht es.',
+      },
+      palace: {
+        name: 'Diokletianpalast',
+        tag: 'Weltkulturerbe',
+        blurb:
+          'Ein 1700 Jahre alter Römerpalast, der noch immer das lebendige Zentrum der Stadt ist. Verlaufen Sie sich in den Gassen, dann zum Peristyl zur goldenen Stunde.',
+      },
+      marjan: {
+        name: 'Marjan-Hügel',
+        tag: 'Aussicht & Pinienwald',
+        blurb:
+          'Steigen Sie die Treppen von Varoš hinauf zum besten Blick auf Stadt und Inseln. Am besten früh morgens oder zum Sonnenuntergang.',
+      },
+      bacvice: {
+        name: 'Bačvice & Picigin',
+        tag: 'Baden',
+        blurb:
+          'Ihr Strand um die Ecke, sieben Minuten entfernt. Schauen Sie den Einheimischen beim Picigin zu - einem Ballspiel, das genau hier im flachen Wasser erfunden wurde.',
+      },
+      znjan: {
+        name: 'Žnjan-Promenade',
+        tag: 'Spaziergang am Meer',
+        blurb:
+          'Eine lange, frisch renovierte Uferpromenade - perfekt für den Morgenlauf oder den Abendspaziergang am Meer.',
+      },
+      boat: {
+        name: 'Bootstour zu den Inseln',
+        tag: 'Tagesausflug',
+        blurb:
+          'Vom Hafen aus erreichen Sie Hvar, Brač oder die Blaue Lagune im Handumdrehen. Tagestour buchen, Badesachen einpacken.',
+      },
+      matejuska: {
+        name: 'Matejuška',
+        tag: 'Sonnenuntergang',
+        blurb:
+          'Der kleine Fischerhafen, wo die Einheimischen mit einem kalten Getränk auf der Mole sitzen und die Sonne untergehen sehen.',
+      },
+      pazar: {
+        name: 'Pazar-Markt',
+        tag: 'Markt',
+        blurb:
+          'Der Markt unter freiem Himmel an der Palastmauer - Feigen, Tomaten, Käse - alles für ein langsames Frühstück auf dem Balkon.',
+      },
     },
   },
 };
