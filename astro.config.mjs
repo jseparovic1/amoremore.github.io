@@ -8,6 +8,7 @@ export default defineConfig({
   site: 'https://amoremore.hr',
   integrations: [
     sitemap({
+      filter: (page) => !page.includes('/guest/'),
       i18n: {
         defaultLocale: 'en',
         locales: { en: 'en', hr: 'hr', de: 'de' },

@@ -20,9 +20,11 @@ interface Props {
   path: string;
   title?: string;
   description?: string;
+  /** keep the page out of search engines (e.g. the guest portal) */
+  noindex?: boolean;
 }
 
-const { locale, path, title, description } = Astro.props;
+const { locale, path, title, description, noindex = false } = Astro.props;
 const t = useTranslations(locale);
 const pageTitle = title ?? t.meta.title;
 const pageDescription = description ?? t.meta.description;
@@ -70,6 +72,7 @@ const structuredData = {
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
     <meta name="theme-color" content="#090a0e" />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
 
     <!-- Open Graph (Facebook, WhatsApp, LinkedIn, iMessage, Telegram, Viber) -->
     <meta property="og:site_name" content="AmoreMore Apartments" />
@@ -144,6 +147,7 @@ const structuredData = {
           <a class="label transition-colors hover:text-gold" href={`${home}#apartments`}>{t.nav.amore} &amp; {t.nav.more}</a>
           <a class="label transition-colors hover:text-gold" href={`${home}#location`}>{t.nav.location}</a>
           <a class="label transition-colors hover:text-gold" href={localePath(locale, '/recommendations/')}>{t.nav.tips}</a>
+          <a class="label transition-colors hover:text-gold" href={localePath(locale, '/guest/')}>{t.nav.guest}</a>
           <a class="label transition-colors hover:text-gold" href={`mailto:${contactEmail}`}>{contactEmail}</a>
         </div>
         <p class="label text-cream/35">© {new Date().getFullYear()} {t.footer.rights}</p>

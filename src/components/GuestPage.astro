@@ -1,0 +1,157 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Motif from './Motif.astro';
+import logoMark from '../assets/brand/logo-mark.svg';
+import { apartments, sharedPhotos, type ApartmentId } from '../data/apartments';
+import { guestWifi, checkInTime, checkOutTime, hostPhone } from '../data/guestInfo';
+import { useTranslations, localePath, contactEmail, type Locale } from '../i18n/translations';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const ids: ApartmentId[] = ['amore', 'more'];
+---
+
+<Base locale={locale} path="/guest/" title={t.guest.metaTitle} description={t.guest.metaDescription} noindex>
+  <main class="bg-ink text-cream">
+    <!-- Login -->
+    <section id="guest-login" class="relative flex min-h-svh items-center overflow-hidden">
+      <Image
+        src={sharedPhotos.entrance}
+        alt=""
+        class="absolute inset-0 h-full w-full object-cover opacity-25"
+        data-kenburns
+        widths={[640, 1024, 1440, 1920]}
+        sizes="100vw"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/80"></div>
+      <div class="relative mx-auto w-full max-w-md px-5 py-32 text-center sm:px-8">
+        <img src={logoMark.src} alt="Amore More" class="mx-auto h-20 w-auto" data-hero-item />
+        <p class="label mt-10 text-gold" data-hero-item>{t.guest.kicker}</p>
+        <h1 class="mt-5 font-display text-4xl font-medium italic leading-tight md:text-5xl" data-hero-item>
+          {t.guest.loginTitle}
+        </h1>
+        <p class="mt-5 text-cream/60" data-hero-item>{t.guest.loginBody}</p>
+        <form class="mt-10" data-guest-form data-hero-item>
+          <input
+            type="password"
+            name="password"
+            required
+            autocomplete="off"
+            placeholder={t.guest.password}
+            class="w-full border-b border-cream/30 bg-transparent py-3 text-center text-lg tracking-widest outline-none transition-colors placeholder:text-cream/30 focus:border-gold"
+          />
+          <p id="guest-error" class="label mt-5 hidden text-rose-deep">{t.guest.wrong}</p>
+          <button
+            type="submit"
+            class="label mt-10 border border-gold px-9 py-3.5 text-gold transition-colors duration-300 hover:bg-gold hover:text-ink"
+          >{t.guest.enter}</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Choose apartment -->
+    <section id="guest-choose" class="hidden min-h-svh px-5 pb-24 pt-40 sm:px-8">
+      <div class="mx-auto max-w-4xl text-center">
+        <p class="label text-gold">{t.guest.kicker}</p>
+        <h1 class="mt-6 font-display text-4xl font-medium italic md:text-6xl">{t.guest.chooseTitle}</h1>
+        <div class="mt-14 grid gap-6 sm:grid-cols-2">
+          {ids.map((id) => (
+            <button
+              type="button"
+              data-guest-apartment={id}
+              class="group relative overflow-hidden border border-cream/15 text-left transition-colors hover:border-gold"
+            >
+              <Image
+                src={apartments[id].plaque}
+                alt={`${t.apartments[id].name} - ${t.apartments[id].type}`}
+                widths={[400, 700, 1100]}
+                sizes="(max-width: 640px) 90vw, 45vw"
+                class="aspect-[4/3] w-full object-cover opacity-80 transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent"></div>
+              <div class="absolute inset-x-0 bottom-0 flex items-baseline justify-between p-6">
+                <span class="font-display text-4xl font-medium italic text-gold">{t.apartments[id].name}</span>
+                <Motif kind={apartments[id].motif} class="h-6 w-auto self-center text-gold/70" />
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Details -->
+    <section id="guest-detail" class="hidden min-h-svh px-5 pb-24 pt-40 sm:px-8">
+      <div class="mx-auto max-w-4xl">
+        {ids.map((id) => (
+          <div data-guest-detail={id} class="hidden">
+            <p class="label text-gold">{t.guest.kicker}</p>
+            <div class="mt-4 flex items-end gap-5">
+              <h1 class="font-display text-6xl font-medium italic leading-none md:text-7xl">{t.apartments[id].name}</h1>
+              <Motif kind={apartments[id].motif} class="mb-2 h-8 w-auto text-gold" />
+            </div>
+
+            <div class="mt-14 grid gap-5 sm:grid-cols-2">
+              <div class="border border-cream/15 p-8">
+                <p class="label text-gold">{t.guest.wifi}</p>
+                <p class="mt-6 text-sm text-cream/50">{t.guest.network}</p>
+                <p class="mt-1 font-display text-2xl font-medium">{guestWifi[id].network}</p>
+                <p class="mt-5 text-sm text-cream/50">{t.guest.wifiPassword}</p>
+                <p class="mt-1 select-all font-display text-2xl font-medium tracking-wide text-gold">{guestWifi[id].password}</p>
+              </div>
+
+              <div class="grid gap-5">
+                <div class="border border-cream/15 p-8">
+                  <div class="flex items-baseline justify-between gap-4">
+                    <p class="label text-gold">{t.guest.checkin}</p>
+                    <p class="font-display text-2xl font-medium">{t.guest.from} {checkInTime}</p>
+                  </div>
+                </div>
+                <div class="border border-cream/15 p-8">
+                  <div class="flex items-baseline justify-between gap-4">
+                    <p class="label text-gold">{t.guest.checkout}</p>
+                    <p class="font-display text-2xl font-medium">{t.guest.until} {checkOutTime}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="border border-cream/15 p-8 sm:col-span-2">
+                <p class="label text-gold">{t.guest.contact}</p>
+                <p class="mt-4 text-cream/70">{t.guest.contactBody}</p>
+                <div class="mt-6 flex flex-wrap items-center gap-x-10 gap-y-3">
+                  <a class="font-display text-xl font-medium text-gold transition-opacity hover:opacity-80" href={`mailto:${contactEmail}`}>{contactEmail}</a>
+                  {hostPhone && (
+                    <a class="font-display text-xl font-medium text-gold transition-opacity hover:opacity-80" href={`tel:${hostPhone.replace(/\s/g, '')}`}>{hostPhone}</a>
+                  )}
+                </div>
+              </div>
+
+              <a
+                href={localePath(locale, '/recommendations/')}
+                class="group border border-gold/40 p-8 transition-colors hover:border-gold sm:col-span-2"
+              >
+                <p class="font-display text-2xl font-medium italic">{t.guest.recsTitle}</p>
+                <p class="label mt-4 text-gold">{t.guest.recsCta} <span class="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span></p>
+              </a>
+            </div>
+
+            <div class="mt-12 flex flex-wrap items-center gap-8">
+              <button type="button" data-guest-switch class="label text-cream/50 transition-colors hover:text-cream">↔ {t.guest.switch}</button>
+              <button type="button" data-guest-logout class="label text-cream/50 transition-colors hover:text-cream">{t.guest.logout}</button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+</Base>
+
+<script>
+  import { initGuestPortal } from '../scripts/guest';
+  initGuestPortal();
+</script>
